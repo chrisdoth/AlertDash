@@ -1,0 +1,200 @@
+﻿<div class="row">
+    @*<div class="col-md-3">
+            <div id="agentsGrid" ui-grid="gridSideOptions" class="memberGrid" ui-grid-resize-columns ui-grid-move-columns ui-grid-auto-resize></div>
+        </div>*@
+
+    
+    <div class="col-md-3">
+        @* IN MUTE *@
+        <div ng-class="inMuteMemberPanelClass">
+            <div class="panel-heading" ng-click="isInMuteMembersCollapsed = !isInMuteMembersCollapsed">
+                <span class="thick-font">IDLE</span> ({{inMuteMembers.length}})
+            </div>
+            <div class="panel-body" collapse="isInMuteMembersCollapsed">
+                <table class="table table-condensed call-table" style="margin-bottom:0">
+                    <tr>
+                        <th>
+                            <a href="#" ng-click="inMuteMemberSortType = 'initials'; inMuteSortReverse = !inMuteSortReverse">
+                                INI
+                                <span ng-show="inMuteMemberSortType == 'initials' && !inMuteSortReverse" class="glyphicon glyphicon-arrow-down"></span>
+                                <span ng-show="inMuteMemberSortType == 'initials' && inMuteSortReverse" class="glyphicon glyphicon-arrow-up"></span>
+                            </a>
+                        </th>
+                        <th>
+                            <a href="#" ng-click="inMuteMemberSortType = 'timer'; inMuteSortReverse = !inMuteSortReverse">
+                                Timer
+                                <span ng-show="inMuteMemberSortType == 'timer' && !inMuteSortReverse" class="glyphicon glyphicon-arrow-down"></span>
+                                <span ng-show="inMuteMemberSortType == 'timer' && inMuteSortReverse" class="glyphicon glyphicon-arrow-up"></span>
+                            </a>
+                        </th>
+                        <th>
+                            <a href="#" ng-click="inMuteMemberSortType = 'textId'; inMuteSortReverse = !inMuteSortReverse">
+                                Client
+                                <span ng-show="inMuteMemberSortType == 'textId' && !inMuteSortReverse" class="glyphicon glyphicon-arrow-down"></span>
+                                <span ng-show="inMuteMemberSortType == 'textId' && inMuteSortReverse" class="glyphicon glyphicon-arrow-up"></span>
+                            </a>
+                        </th>
+                    </tr>
+                    <tr ng-repeat="member in inMuteMembers | orderBy:inMuteMemberSortType:inMuteSortReverse">
+                        <td><a href="#" ng-click="openMemberDetail(member)">{{member.initials}}</a></td>
+                        <td>{{member.timer}}</td>
+                        <td style="text-align:left">{{member.client}}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="col-md-3">
+        @* IN TALK *@
+        <div ng-class="inTalkMemberPanelClass">
+            <div class="panel-heading" ng-click="isInTalkMembersCollapsed = !isInTalkMembersCollapsed">
+                <span class="thick-font">TALK</span> ({{inTalkMembers.length}})
+            </div>
+            <div class="panel-body" collapse="isInTalkMembersCollapsed">
+                <div class="">
+                    <table class="table table-condensed call-table" style="margin-bottom:0">
+                        <tr>
+                            <th>
+                                <a href="#" ng-click="inTalkMemberSortType = 'initials'; inTalkSortReverse = !inTalkSortReverse">
+                                    INI
+                                    <span ng-show="inTalkMemberSortType == 'initials' && !inTalkSortReverse" class="glyphicon glyphicon-arrow-down"></span>
+                                    <span ng-show="inTalkMemberSortType == 'initials' && inTalkSortReverse" class="glyphicon glyphicon-arrow-up"></span>
+                                </a>
+                            </th>
+                            <th>
+                                <a href="#" ng-click="inTalkMemberSortType = 'timer'; inTalkSortReverse = !inMuteSortReverse">
+                                    Timer
+                                    <span ng-show="inTalkMemberSortType == 'timer' && !inTalkSortReverse" class="glyphicon glyphicon-arrow-down"></span>
+                                    <span ng-show="inTalkMemberSortType == 'timer' && inTalkSortReverse" class="glyphicon glyphicon-arrow-up"></span>
+                                </a>
+                            </th>
+                            <th>
+                                <a href="#" ng-click="inTalkMemberSortType = 'textId'; inTalkSortReverse = !inTalkSortReverse">
+                                    Client
+                                    <span ng-show="inTalkMemberSortType == 'textId' && !inTalkSortReverse" class="glyphicon glyphicon-arrow-down"></span>
+                                    <span ng-show="inTalkMemberSortType == 'textId' && inTalkSortReverse" class="glyphicon glyphicon-arrow-up"></span>
+                                </a>
+                            </th>
+                        </tr>
+                        <tr ng-repeat="member in inTalkMembers | orderBy:inTalkMemberSortType:inTalkSortReverse">
+                            <td><a href="#" ng-click="openMemberDetail(member)">{{member.initials}}</a></td>
+                            <td>{{member.timer}}</td>
+                            <td style="text-align:left; overflow-x:hidden;">{{member.client}}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        @* OUT TALK *@
+        <div ng-class="outTalkMemberPanelClass">
+            <div class="panel-heading" ng-click="isOutTalkMembersCollapsed = !isOutTalkMembersCollapsed">
+                <span class="thick-font">OUTBOUND/DISPATCHING</span> ({{outTalkMembers.length}})
+            </div>
+            <div class="panel-body" collapse="isOutTalkMembersCollapsed">
+                <div class="">
+                    <table class="table table-condensed call-table" style="margin-bottom:0">
+                        <tr>
+                            <th>
+                                <a href="#" ng-click="outTalkMemberSortType = 'initials'; outTalkSortReverse = !outTalkSortReverse">
+                                    INI
+                                    <span ng-show="outTalkMemberSortType == 'initials' && !outTalkSortReverse" class="glyphicon glyphicon-arrow-down"></span>
+                                    <span ng-show="outTalkMemberSortType == 'initials' && outTalkSortReverse" class="glyphicon glyphicon-arrow-up"></span>
+                                </a>
+                            </th>
+                            <th>
+                                <a href="#" ng-click="outTalkMemberSortType = 'timer'; outTalkSortReverse = !outTalkSortReverse">
+                                    Timer
+                                    <span ng-show="outTalkMemberSortType == 'timer' && !outTalkSortReverse" class="glyphicon glyphicon-arrow-down"></span>
+                                    <span ng-show="outTalkMemberSortType == 'timer' && outTalkSortReverse" class="glyphicon glyphicon-arrow-up"></span>
+                                </a>
+                            </th>
+                            <th>
+                                <a href="#" ng-click="outTalkMemberSortType = 'textId'; outTalkSortReverse = !outTalkSortReverse">
+                                    Client
+                                    <span ng-show="outTalkMemberSortType == 'textId' && !outTalkSortReverse" class="glyphicon glyphicon-arrow-down"></span>
+                                    <span ng-show="outTalkMemberSortType == 'textId' && outTalkSortReverse" class="glyphicon glyphicon-arrow-up"></span>
+                                </a>
+                            </th>
+                        </tr>
+                        <tr ng-repeat="member in outTalkMembers | orderBy:outTalkMemberSortType:outTalkSortReverse">
+                            <td><a href="#" ng-click="openMemberDetail(member)">{{member.initials}}</a></td>
+                            <td>{{member.timer}}</td>
+                            <td style="text-align:left">{{member.client}}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        @* OUT MUTE *@
+        <div ng-class="outMuteMemberPanelClass">
+            <div class="panel-heading" ng-click="isOutMuteMembersCollapsed = !isOutMuteMembersCollapsed">
+                <span class="thick-font">UNAVAILABLE</span> ({{outMuteMembers.length}})
+            </div>
+            <div class="panel-body" collapse="isOutMuteMembersCollapsed">
+                <div class="">
+                    <table class="table table-condensed call-table" style="margin-bottom:0">
+                        <tr>
+                            <th>
+                                <a href="#" ng-click="outMuteMemberSortType = 'initials'; outMuteSortReverse = !outMuteSortReverse">
+                                    INI
+                                    <span ng-show="outMuteMemberSortType == 'initials' && !outMuteSortReverse" class="glyphicon glyphicon-arrow-down"></span>
+                                    <span ng-show="outMuteMemberSortType == 'initials' && outMuteSortReverse" class="glyphicon glyphicon-arrow-up"></span>
+                                </a>
+                            </th>
+                            <th>
+                                <a href="#" ng-click="outMuteMemberSortType = 'timer'; outMuteSortReverse = !outMuteSortReverse">
+                                    Timer
+                                    <span ng-show="outMuteMemberSortType == 'timer' && !outMuteSortReverse" class="glyphicon glyphicon-arrow-down"></span>
+                                    <span ng-show="outMuteMemberSortType == 'timer' && outMuteSortReverse" class="glyphicon glyphicon-arrow-up"></span>
+                                </a>
+                            </th>
+                            <th>
+                                <a href="#" ng-click="outMuteMemberSortType = 'textId'; outMuteSortReverse = !outMuteSortReverse">
+                                    Client
+                                    <span ng-show="outMuteMemberSortType == 'textId' && !outMuteSortReverse" class="glyphicon glyphicon-arrow-down"></span>
+                                    <span ng-show="outMuteMemberSortType == 'textId' && outMuteSortReverse" class="glyphicon glyphicon-arrow-up"></span>
+                                </a>
+                            </th>
+                        </tr>
+                        <tr ng-repeat="member in outMuteMembers | orderBy:outMuteMemberSortType:outMuteSortReverse">
+                            <td><a href="#" ng-click="openMemberDetail(member)">{{member.initials}}</a></td>
+                            <td>{{member.timer}}</td>
+                            <<td style="text-align:left">{{member.client}}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <span class="thick-font">CALLS</span> ({{callGridCalls.length}})
+            </div>
+            <div class="panel-body">
+                <table class="table table-condensed call-table {{call.style}}" ng-repeat="call in callGridCalls">
+                    <tr>
+                        <th></th>
+                    </tr>
+                    <tr>
+                        <td><span class="thick-font">{{call.data.affinity}}</span></td>
+                    </tr>
+                    <tr>
+                        <td><span class="thick-font">{{call.data.clientName}}</span></td>
+                    </tr>
+                    <tr>
+                        <td><progressbar class="progress" type="{{call.data.progressbarType}}" value="call.data.waitTime" max="call.data.progressbarMaxValue" min="call.data.progressbarMinValue">{{call.data.waitTime}} Sec</progressbar></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,584 @@
+﻿[
+  {
+    "WarningTimeoutInSeconds": 12,
+    "DangerTimeoutInSeconds": 24,
+    "QueueId": 100,
+    "GroupingName": "Professional"
+  },
+  {
+    "WarningTimeoutInSeconds": 12,
+    "DangerTimeoutInSeconds": 24,
+    "QueueId": 101,
+    "GroupingName": "Professional"
+  },
+  {
+    "WarningTimeoutInSeconds": 12,
+    "DangerTimeoutInSeconds": 24,
+    "QueueId": 102,
+    "GroupingName": "Professional"
+  },
+  {
+    "WarningTimeoutInSeconds": 12,
+    "DangerTimeoutInSeconds": 24,
+    "QueueId": 107,
+    "GroupingName": "Spanish"
+  },
+  {
+    "WarningTimeoutInSeconds": 12,
+    "DangerTimeoutInSeconds": 24,
+    "QueueId": 108,
+    "GroupingName": "Spanish"
+  },
+  {
+    "WarningTimeoutInSeconds": 12,
+    "DangerTimeoutInSeconds": 24,
+    "QueueId": 117,
+    "GroupingName": "Spanish"
+  },
+  {
+    "WarningTimeoutInSeconds": 12,
+    "DangerTimeoutInSeconds": 24,
+    "QueueId": 113,
+    "GroupingName": "Medical"
+  },
+  {
+    "WarningTimeoutInSeconds": 12,
+    "DangerTimeoutInSeconds": 24,
+    "QueueId": 114,
+    "GroupingName": "Medical"
+  },
+  {
+    "WarningTimeoutInSeconds": 12,
+    "DangerTimeoutInSeconds": 24,
+    "QueueId": 115,
+    "GroupingName": "Medical"
+  },
+  {
+    "WarningTimeoutInSeconds": 12,
+    "DangerTimeoutInSeconds": 24,
+    "QueueId": 200,
+    "GroupingName": "Medical"
+  },
+  {
+    "WarningTimeoutInSeconds": 12,
+    "DangerTimeoutInSeconds": 24,
+    "QueueId": 217,
+    "GroupingName": "Medical"
+  },
+  {
+    "WarningTimeoutInSeconds": 12,
+    "DangerTimeoutInSeconds": 24,
+    "QueueId": 202,
+    "GroupingName": "Legal"
+  },
+  {
+    "WarningTimeoutInSeconds": 12,
+    "DangerTimeoutInSeconds": 24,
+    "QueueId": 203,
+    "GroupingName": "Legal"
+  },
+  {
+    "WarningTimeoutInSeconds": 12,
+    "DangerTimeoutInSeconds": 24,
+    "QueueId": 215,
+    "GroupingName": "Legal"
+  },
+  {
+    "WarningTimeoutInSeconds": 12,
+    "DangerTimeoutInSeconds": 24,
+    "QueueId": 132,
+    "GroupingName": "Commercial"
+  },
+  {
+    "WarningTimeoutInSeconds": 12,
+    "DangerTimeoutInSeconds": 24,
+    "QueueId": 133,
+    "GroupingName": "Commercial"
+  },
+  {
+    "WarningTimeoutInSeconds": 12,
+    "DangerTimeoutInSeconds": 24,
+    "QueueId": 134,
+    "GroupingName": "Commercial"
+  },
+  {
+    "WarningTimeoutInSeconds": 12,
+    "DangerTimeoutInSeconds": 24,
+    "QueueId": 109,
+    "GroupingName": "Tech"
+  },
+  {
+    "WarningTimeoutInSeconds": 12,
+    "DangerTimeoutInSeconds": 24,
+    "QueueId": 110,
+    "GroupingName": "Tech"
+  },
+  {
+    "WarningTimeoutInSeconds": 12,
+    "DangerTimeoutInSeconds": 24,
+    "QueueId": 111,
+    "GroupingName": "Tech"
+  },
+  {
+    "WarningTimeoutInSeconds": 12,
+    "DangerTimeoutInSeconds": 24,
+    "QueueId": 212,
+    "GroupingName": "Tech"
+  },
+  {
+    "WarningTimeoutInSeconds": 12,
+    "DangerTimeoutInSeconds": 24,
+    "QueueId": 213,
+    "GroupingName": "Tech"
+  },
+  {
+    "WarningTimeoutInSeconds": 12,
+    "DangerTimeoutInSeconds": 24,
+    "QueueId": 209,
+    "GroupingName": "Riverbed"
+  },
+  {
+    "WarningTimeoutInSeconds": 12,
+    "DangerTimeoutInSeconds": 24,
+    "QueueId": 210,
+    "GroupingName": "Fuze"
+  },
+  {
+    "WarningTimeoutInSeconds": 12,
+    "DangerTimeoutInSeconds": 24,
+    "QueueId": 129,
+    "GroupingName": "HVAC"
+  },
+  {
+    "WarningTimeoutInSeconds": 12,
+    "DangerTimeoutInSeconds": 24,
+    "QueueId": 130,
+    "GroupingName": "HVAC"
+  },
+  {
+    "WarningTimeoutInSeconds": 12,
+    "DangerTimeoutInSeconds": 24,
+    "QueueId": 131,
+    "GroupingName": "HVAC"
+  },
+  {
+    "WarningTimeoutInSeconds": 12,
+    "DangerTimeoutInSeconds": 24,
+    "QueueId": 214,
+    "GroupingName": "New Accounts"
+  },
+  {
+    "WarningTimeoutInSeconds": 12,
+    "DangerTimeoutInSeconds": 24,
+    "QueueId": 216,
+    "GroupingName": "New Accounts"
+  },
+  {
+    "WarningTimeoutInSeconds": 12,
+    "DangerTimeoutInSeconds": 24,
+    "QueueId": 207,
+    "GroupingName": "Raffle Coin Eagle"
+  },
+  {
+    "WarningTimeoutInSeconds": 12,
+    "DangerTimeoutInSeconds": 24,
+    "QueueId": 211,
+    "GroupingName": "Raffle Coin Eagle"
+  },
+  {
+    "WarningTimeoutInSeconds": 12,
+    "DangerTimeoutInSeconds": 24,
+    "QueueId": 201,
+    "GroupingName": "Raffle Coin Eagle"
+  },
+  {
+    "WarningTimeoutInSeconds": 12,
+    "DangerTimeoutInSeconds": 24,
+    "QueueId": 211,
+    "GroupingName": "Raffle Coin Eagle"
+  },
+  {
+    "WarningTimeoutInSeconds": 12,
+    "DangerTimeoutInSeconds": 24,
+    "QueueId": 401,
+    "GroupingName": "Inland"
+  },
+  {
+    "WarningTimeoutInSeconds": 12,
+    "DangerTimeoutInSeconds": 24,
+    "QueueId": 402,
+    "GroupingName": "Inland"
+  },
+  {
+    "WarningTimeoutInSeconds": 12,
+    "DangerTimeoutInSeconds": 24,
+    "QueueId": 406,
+    "GroupingName": "Inland"
+  },
+  {
+    "WarningTimeoutInSeconds": 12,
+    "DangerTimeoutInSeconds": 24,
+    "QueueId": 407,
+    "GroupingName": "Inland"
+  },
+  {
+    "WarningTimeoutInSeconds": 12,
+    "DangerTimeoutInSeconds": 24,
+    "QueueId": 450,
+    "GroupingName": "Inland"
+  },
+  {
+    "WarningTimeoutInSeconds": 12,
+    "DangerTimeoutInSeconds": 24,
+    "QueueId": 126,
+    "GroupingName": "Insurance"
+  },
+  {
+    "WarningTimeoutInSeconds": 12,
+    "DangerTimeoutInSeconds": 24,
+    "QueueId": 127,
+    "GroupingName": "Insurance"
+  },
+  {
+    "WarningTimeoutInSeconds": 12,
+    "DangerTimeoutInSeconds": 24,
+    "QueueId": 501,
+    "GroupingName": "Keener"
+  },
+  {
+    "WarningTimeoutInSeconds": 12,
+    "DangerTimeoutInSeconds": 24,
+    "QueueId": 510,
+    "GroupingName": "Keener"
+  },
+  {
+    "WarningTimeoutInSeconds": 12,
+    "DangerTimeoutInSeconds": 24,
+    "QueueId": 521,
+    "GroupingName": "Keener"
+  },
+  {
+    "WarningTimeoutInSeconds": 12,
+    "DangerTimeoutInSeconds": 24,
+    "QueueId": 522,
+    "GroupingName": "Keener"
+  },
+  {
+    "WarningTimeoutInSeconds": 12,
+    "DangerTimeoutInSeconds": 24,
+    "QueueId": 523,
+    "GroupingName": "Keener"
+  },
+  {
+    "WarningTimeoutInSeconds": 12,
+    "DangerTimeoutInSeconds": 24,
+    "QueueId": 524,
+    "GroupingName": "Keener"
+  },
+  {
+    "WarningTimeoutInSeconds": 12,
+    "DangerTimeoutInSeconds": 24,
+    "QueueId": 525,
+    "GroupingName": "Keener"
+  },
+  {
+    "WarningTimeoutInSeconds": 12,
+    "DangerTimeoutInSeconds": 24,
+    "QueueId": 526,
+    "GroupingName": "Keener"
+  },
+  {
+    "WarningTimeoutInSeconds": 12,
+    "DangerTimeoutInSeconds": 24,
+    "QueueId": 527,
+    "GroupingName": "Keener"
+  },
+  {
+    "WarningTimeoutInSeconds": 12,
+    "DangerTimeoutInSeconds": 24,
+    "QueueId": 529,
+    "GroupingName": "Keener"
+  },
+  {
+    "WarningTimeoutInSeconds": 12,
+    "DangerTimeoutInSeconds": 24,
+    "QueueId": 528,
+    "GroupingName": "Keener"
+  },
+  {
+    "WarningTimeoutInSeconds": 12,
+    "DangerTimeoutInSeconds": 24,
+    "QueueId": 530,
+    "GroupingName": "Keener"
+  },
+  {
+    "WarningTimeoutInSeconds": 12,
+    "DangerTimeoutInSeconds": 24,
+    "QueueId": 531,
+    "GroupingName": "Keener"
+  },
+  {
+    "WarningTimeoutInSeconds": 12,
+    "DangerTimeoutInSeconds": 24,
+    "QueueId": 100,
+    "GroupingName": "Unenhanced"
+  },
+  {
+    "WarningTimeoutInSeconds": 12,
+    "DangerTimeoutInSeconds": 24,
+    "QueueId": 109,
+    "GroupingName": "Unenhanced"
+  },
+  {
+    "WarningTimeoutInSeconds": 12,
+    "DangerTimeoutInSeconds": 24,
+    "QueueId": 113,
+    "GroupingName": "Unenhanced"
+  },
+  {
+    "WarningTimeoutInSeconds": 12,
+    "DangerTimeoutInSeconds": 24,
+    "QueueId": 129,
+    "GroupingName": "Unenhanced"
+  },
+  {
+    "WarningTimeoutInSeconds": 12,
+    "DangerTimeoutInSeconds": 24,
+    "QueueId": 132,
+    "GroupingName": "Unenhanced"
+  },
+  {
+    "WarningTimeoutInSeconds": 12,
+    "DangerTimeoutInSeconds": 24,
+    "QueueId": 200,
+    "GroupingName": "Unenhanced"
+  },
+  {
+    "WarningTimeoutInSeconds": 12,
+    "DangerTimeoutInSeconds": 24,
+    "QueueId": 202,
+    "GroupingName": "Unenhanced"
+  },
+  {
+    "WarningTimeoutInSeconds": 12,
+    "DangerTimeoutInSeconds": 24,
+    "QueueId": 207,
+    "GroupingName": "Unenhanced"
+  },
+  {
+    "WarningTimeoutInSeconds": 12,
+    "DangerTimeoutInSeconds": 24,
+    "QueueId": 211,
+    "GroupingName": "Unenhanced"
+  },
+  {
+    "WarningTimeoutInSeconds": 12,
+    "DangerTimeoutInSeconds": 24,
+    "QueueId": 215,
+    "GroupingName": "Unenhanced"
+  },
+  {
+    "WarningTimeoutInSeconds": 12,
+    "DangerTimeoutInSeconds": 24,
+    "QueueId": 217,
+    "GroupingName": "Unenhanced"
+  },
+  {
+    "WarningTimeoutInSeconds": 12,
+    "DangerTimeoutInSeconds": 24,
+    "QueueId": 407,
+    "GroupingName": "Unenhanced"
+  },
+  {
+    "WarningTimeoutInSeconds": 12,
+    "DangerTimeoutInSeconds": 24,
+    "QueueId": 521,
+    "GroupingName": "Unenhanced"
+  },
+  {
+    "WarningTimeoutInSeconds": 12,
+    "DangerTimeoutInSeconds": 24,
+    "QueueId": 522,
+    "GroupingName": "Unenhanced"
+  },
+  {
+    "WarningTimeoutInSeconds": 12,
+    "DangerTimeoutInSeconds": 24,
+    "QueueId": 525,
+    "GroupingName": "Unenhanced"
+  },
+  {
+    "WarningTimeoutInSeconds": 12,
+    "DangerTimeoutInSeconds": 24,
+    "QueueId": 530,
+    "GroupingName": "Unenhanced"
+  },
+  {
+    "WarningTimeoutInSeconds": 12,
+    "DangerTimeoutInSeconds": 24,
+    "QueueId": 101,
+    "GroupingName": "Enhanced"
+  },
+  {
+    "WarningTimeoutInSeconds": 12,
+    "DangerTimeoutInSeconds": 24,
+    "QueueId": 102,
+    "GroupingName": "Enhanced"
+  },
+  {
+    "WarningTimeoutInSeconds": 12,
+    "DangerTimeoutInSeconds": 24,
+    "QueueId": 107,
+    "GroupingName": "Enhanced"
+  },
+  {
+    "WarningTimeoutInSeconds": 12,
+    "DangerTimeoutInSeconds": 24,
+    "QueueId": 110,
+    "GroupingName": "Enhanced"
+  },
+  {
+    "WarningTimeoutInSeconds": 12,
+    "DangerTimeoutInSeconds": 24,
+    "QueueId": 111,
+    "GroupingName": "Enhanced"
+  },
+  {
+    "WarningTimeoutInSeconds": 12,
+    "DangerTimeoutInSeconds": 24,
+    "QueueId": 114,
+    "GroupingName": "Enhanced"
+  },
+  {
+    "WarningTimeoutInSeconds": 12,
+    "DangerTimeoutInSeconds": 24,
+    "QueueId": 115,
+    "GroupingName": "Enhanced"
+  },
+  {
+    "WarningTimeoutInSeconds": 12,
+    "DangerTimeoutInSeconds": 24,
+    "QueueId": 126,
+    "GroupingName": "Enhanced"
+  },
+  {
+    "WarningTimeoutInSeconds": 12,
+    "DangerTimeoutInSeconds": 24,
+    "QueueId": 130,
+    "GroupingName": "Enhanced"
+  },
+  {
+    "WarningTimeoutInSeconds": 12,
+    "DangerTimeoutInSeconds": 24,
+    "QueueId": 131,
+    "GroupingName": "Enhanced"
+  },
+  {
+    "WarningTimeoutInSeconds": 12,
+    "DangerTimeoutInSeconds": 24,
+    "QueueId": 133,
+    "GroupingName": "Enhanced"
+  },
+  {
+    "WarningTimeoutInSeconds": 12,
+    "DangerTimeoutInSeconds": 24,
+    "QueueId": 134,
+    "GroupingName": "Enhanced"
+  },
+  {
+    "WarningTimeoutInSeconds": 12,
+    "DangerTimeoutInSeconds": 24,
+    "QueueId": 201,
+    "GroupingName": "Enhanced"
+  },
+  {
+    "WarningTimeoutInSeconds": 12,
+    "DangerTimeoutInSeconds": 24,
+    "QueueId": 203,
+    "GroupingName": "Enhanced"
+  },
+  {
+    "WarningTimeoutInSeconds": 12,
+    "DangerTimeoutInSeconds": 24,
+    "QueueId": 209,
+    "GroupingName": "Enhanced"
+  },
+  {
+    "WarningTimeoutInSeconds": 12,
+    "DangerTimeoutInSeconds": 24,
+    "QueueId": 210,
+    "GroupingName": "Enhanced"
+  },
+  {
+    "WarningTimeoutInSeconds": 12,
+    "DangerTimeoutInSeconds": 24,
+    "QueueId": 212,
+    "GroupingName": "Enhanced"
+  },
+  {
+    "WarningTimeoutInSeconds": 12,
+    "DangerTimeoutInSeconds": 24,
+    "QueueId": 213,
+    "GroupingName": "Enhanced"
+  },
+  {
+    "WarningTimeoutInSeconds": 12,
+    "DangerTimeoutInSeconds": 24,
+    "QueueId": 216,
+    "GroupingName": "Enhanced"
+  },
+  {
+    "WarningTimeoutInSeconds": 12,
+    "DangerTimeoutInSeconds": 24,
+    "QueueId": 217,
+    "GroupingName": "Enhanced"
+  },
+  {
+    "WarningTimeoutInSeconds": 12,
+    "DangerTimeoutInSeconds": 24,
+    "QueueId": 402,
+    "GroupingName": "Enhanced"
+  },
+  {
+    "WarningTimeoutInSeconds": 12,
+    "DangerTimeoutInSeconds": 24,
+    "QueueId": 450,
+    "GroupingName": "Enhanced"
+  },
+  {
+    "WarningTimeoutInSeconds": 12,
+    "DangerTimeoutInSeconds": 24,
+    "QueueId": 523,
+    "GroupingName": "Enhanced"
+  },
+  {
+    "WarningTimeoutInSeconds": 12,
+    "DangerTimeoutInSeconds": 24,
+    "QueueId": 524,
+    "GroupingName": "Enhanced"
+  },
+  {
+    "WarningTimeoutInSeconds": 12,
+    "DangerTimeoutInSeconds": 24,
+    "QueueId": 526,
+    "GroupingName": "Enhanced"
+  },
+  {
+    "WarningTimeoutInSeconds": 12,
+    "DangerTimeoutInSeconds": 24,
+    "QueueId": 527,
+    "GroupingName": "Enhanced"
+  },
+  {
+    "WarningTimeoutInSeconds": 12,
+    "DangerTimeoutInSeconds": 24,
+    "QueueId": 528,
+    "GroupingName": "Enhanced"
+  },
+  {
+    "WarningTimeoutInSeconds": 12,
+    "DangerTimeoutInSeconds": 24,
+    "QueueId": 531,
+    "GroupingName": "Enhanced"
+  }
+]

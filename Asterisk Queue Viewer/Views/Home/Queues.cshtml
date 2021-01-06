@@ -1,0 +1,259 @@
+﻿<div class="row">
+    <div class="col-md-3">
+        <div class="panel panel-info panel-a1-blue">
+            <div class="panel-heading">Queues</div>
+            <div class="panel-body">
+                <ul class="list-group">
+                    <li class="list-group-item a1-list-group-item-black">
+                        <span class="queue-name">(Name)</span>
+                        <span class="pull-right">(Receptionists) (Calls)</span>
+                    </li>
+                    <li class="list-group-item" ng-click="DisplayQueue(queue.id)" ng-repeat="queue in queues" ng-class="{'list-group-item a1-list-group-item-active-blue': queue.id == selectedQueueId,'list-group-item a1-list-group-item-blue': queue.id != selectedQueueId}"><span class="queue-name"><a href="javascript: void(null)">{{queue.affinityName}}</a></span><span class="pull-right">({{queue.agents}}) ({{queue.calls}})</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-9">
+        <div class="col-md-4">
+
+            <div class="panel panel-info panel-a1-blue" ng-show="selectedQueueId > -1">
+                <div class="panel-heading">Calls</div>
+                <div class="panel-body">
+                    <ul class="list-group">
+                        <li ng-repeat="call in selectedQueueCalls" class="list-group-item" style="padding:0px">
+                            <div style="color:white; border:#cdcdcd thin solid; padding:3px; margin-bottom:3px; overflow:hidden; white-space:nowrap; text-overflow:ellipsis; width:100%; display:block; text-align:left" ng-class='{"progress-bar-success" : call.progressBarType == "success", "progress-bar-warning" : call.progressBarType == "warning", "progress-bar-danger" : call.progressBarType == "danger"}'>
+                                (<strong>{{call.callType}}</strong>) - {{call.clientName}}
+                                <span class="pull-right">
+                                    {{call.timerInSeconds}}
+                                </span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="panel panel-info panel-a1-blue" ng-show="selectedQueueId > -1">
+                <div class="panel-heading">Agents</div>
+                <div class="panel-body">
+                    <ul class="list-group">
+                        <li ng-repeat="agent in selectedQueueAgents" class="list-group-item" style="padding:0px">
+                            <div style="border:#cdcdcd thin solid; padding:3px; margin-bottom:3px; overflow:hidden; white-space:nowrap; text-overflow:ellipsis; width:100%; display:block; text-align:left" ng-class="{memberGridInMute : agent.state.includes('In Mute'), memberGridInTalk : agent.state.includes('In Talk'), memberGridOutTalk : agent.state.includes('Out Talk'), memberGridOutMute : agent.state.includes('Out Mute')}">
+                                <div class="queueRow" ng-click="OpenAgentDetail(agent.agnetId)">{{agent.agentFirstName}} {{agent.agentLastName}} ({{agent.new + agent.holding}}) <span class="pull-right">{{agent.state}}</span></div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-md-8">
+            <table class="table table-bordered table-striped table-a1-blue" ng-show="selectedQueueId > -1">
+                <thead>
+                    <tr>
+                        <th>Period</th>
+                        <th>SLA</th>
+                        <th>Calls Offered</th>
+                        <th>Calls Handled</th>
+                        <th>Calls ABD</th>
+                        <th>Average Hold</th>
+                        <th>ASA</th>
+                        <th>Average Talk</th>
+                        <th>Longest Hold</th>
+                        <th>Longest TTA</th>
+                        <th>Work</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="text-nowrap"><strong>Totals:</strong></span></td>
+                        <td><span class="text-nowrap"><strong>{{selectedQueueTotal.sla}}</strong></span></td>
+                        <td><span class=""><strong>{{selectedQueueTotal.callsQueued}}</strong></span></td>
+                        <td><span class=""><strong>{{selectedQueueTotal.callsHandled}}</strong></span></td>
+                        <td><span class=""><strong>{{selectedQueueTotal.callsQueued - selectedQueueTotal.callsHandled}}&nbsp;({{selectedQueueTotal.callsQueued > 0 ? (selectedQueueTotal.callsQueued - selectedQueueTotal.callsHandled) * 100 / selectedQueueTotal.callsQueued : 0 | number : 1}}%)</strong></span></td>
+                        <td><span class=""><strong>{{selectedQueueTotal.averageHold}}</strong></span></td>
+                        <td><span class=""><strong>{{selectedQueueTotal.averageTimeToAnswer}}</strong></span></td>
+                        <td><span class=""><strong>{{selectedQueueTotal.averageTalkTime}}</strong></span></td>
+                        <td><span class=""><strong>{{selectedQueueTotal.longestHold}}</strong></span></td>
+                        <td><span class=""><strong>{{selectedQueueTotal.longestTimeToAnswer}}</strong></span></td>
+                        <td><span class="text-nowrap"><strong>{{selectedQueueTotal.totalWork}}</strong></span></td>
+                    </tr>
+                    <tr ng-repeat="stat in selectedQueueStats">
+                        <td><span class="text-nowrap">{{stat.periodStr}}</span></td>
+                        <td><span class="text-nowrap">{{stat.sla}}</span></td>
+                        <td>{{stat.callsQueued}}</td>
+                        <td>{{stat.callsHandled}}</td>
+                        <td>{{stat.callsQueued - stat.callsHandled}}&nbsp;({{stat.callsQueued > 0 ? (stat.callsQueued - stat.callsHandled) * 100 / stat.callsQueued : 0 | number : 1}}%)</td>
+                        <td>{{stat.averageHold}}</td>
+                        <td>{{stat.averageTimeToAnswer}}</td>
+                        <td>{{stat.averageTalkTime}}</td>
+                        <td>{{stat.longestHold}}</td>
+                        <td>{{stat.longestTimeToAnswer}}</td>
+                        <td><span class="text-nowrap">{{stat.totalWork}}</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+@*<div class="row">
+    <div class="col-sm-12">
+        <form class="form-inline">
+            <div class="form-group">
+                <label>Filter: </label>
+                <input type="text" ng-model="searchFilter" class="form-control" />
+            </div>
+        </form>
+        <hr />
+        <table class="table table-bordered table-striped table-condensed table-a1-blue">
+            <tr>
+                <th>
+                    <a href="#" ng-click="sortingColumn = 'id'; sortingReverse = !sortingReverse">
+                        Queue
+                        <span ng-show="sortingColumn == 'id' && !sortingReverse" class="glyphicon glyphicon-arrow-down"></span>
+                        <span ng-show="sortingColumn == 'id' && sortingReverse" class="glyphicon glyphicon-arrow-up"></span>
+                    </a>
+                </th>
+                <th>
+                    <a href="#" ng-click="sortingColumn = 'affinityName'; sortingReverse = !sortingReverse">
+                        Queue Name
+                        <span ng-show="sortingColumn == 'affinityName' && !sortingReverse" class="glyphicon glyphicon-arrow-down"></span>
+                        <span ng-show="sortingColumn == 'affinityName' && sortingReverse" class="glyphicon glyphicon-arrow-up"></span>
+                    </a>
+                </th>
+                <th>
+                    <a href="#" ng-click="sortingColumn = 'calls'; sortingReverse = !sortingReverse">
+                        Calls
+                        <span ng-show="sortingColumn == 'calls' && !sortingReverse" class="glyphicon glyphicon-arrow-down"></span>
+                        <span ng-show="sortingColumn == 'calls' && sortingReverse" class="glyphicon glyphicon-arrow-up"></span>
+                    </a>
+                </th>
+                <th>
+                    <a href="#" ng-click="sortingColumn = 'agents'; sortingReverse = !sortingReverse">
+                        Agents
+                        <span ng-show="sortingColumn == 'agents' && !sortingReverse" class="glyphicon glyphicon-arrow-down"></span>
+                        <span ng-show="sortingColumn == 'agents' && sortingReverse" class="glyphicon glyphicon-arrow-up"></span>
+                    </a>
+                </th>
+                <th>
+                    <a href="#" ng-click="sortingColumn = 'inMuteAgents'; sortingReverse = !sortingReverse">
+                        In Mute
+                        <span ng-show="sortingColumn == 'inMuteAgents' && !sortingReverse" class="glyphicon glyphicon-arrow-down"></span>
+                        <span ng-show="sortingColumn == 'inMuteAgents' && sortingReverse" class="glyphicon glyphicon-arrow-up"></span>
+                    </a>
+                </th>
+                <th>
+                    <a href="#" ng-click="sortingColumn = 'inTalkAgents'; sortingReverse = !sortingReverse">
+                        In Talk
+                        <span ng-show="sortingColumn == 'inTalkAgents' && !sortingReverse" class="glyphicon glyphicon-arrow-down"></span>
+                        <span ng-show="sortingColumn == 'inTalkAgents' && sortingReverse" class="glyphicon glyphicon-arrow-up"></span>
+                    </a>
+                </th>
+                <th>
+                    <a href="#" ng-click="sortingColumn = 'outTalkAgents'; sortingReverse = !sortingReverse">
+                        Out Talk
+                        <span ng-show="sortingColumn == 'outTalkAgents' && !sortingReverse" class="glyphicon glyphicon-arrow-down"></span>
+                        <span ng-show="sortingColumn == 'outTalkAgents' && sortingReverse" class="glyphicon glyphicon-arrow-up"></span>
+                    </a>
+                </th>
+                <th>
+                    <a href="#" ng-click="sortingColumn = 'outMuteAgents'; sortingReverse = !sortingReverse">
+                        Out Mute
+                        <span ng-show="sortingColumn == 'outMuteAgents' && !sortingReverse" class="glyphicon glyphicon-arrow-down"></span>
+                        <span ng-show="sortingColumn == 'outMuteAgents' && sortingReverse" class="glyphicon glyphicon-arrow-up"></span>
+                    </a>
+                </th>
+            </tr>
+            <tr ng-repeat-start="queue in queues | filter:searchFilter | orderBy:sortingColumn:sortingReverse" ng-click="SelectQueue(queue.id)" class="queueRow">
+                <td>{{queue.id}}</td>
+                <td>{{queue.affinityName}}</td>
+                <td>{{queue.calls}}</td>
+                <td>{{queue.agents}}</td>
+                <td>{{queue.inMuteAgents}}</td>
+                <td>{{queue.inTalkAgents}}</td>
+                <td>{{queue.outTalkAgents}}</td>
+                <td>{{queue.outMuteAgents}}</td>
+            </tr>
+            <tr ng-repeat-end ng-show="queue.expanded">
+                <td colspan="8">
+
+                  
+                        <div class="row">
+                            <div class=""><h4>Agents ({{selectedQueueAgents.length}})</h4></div>
+                            <div class="">
+                                <div class="col-sm-12 col-md-4 col-lg-3" ng-repeat="agent in selectedQueueAgents">
+                                    <div style="border:#cdcdcd thin solid; padding:3px; margin-bottom:3px; overflow:hidden; white-space:nowrap; text-overflow:ellipsis; width:100%; display:block; text-align:left" ng-class="{memberGridInMute : agent.state.includes('In Mute'), memberGridInTalk : agent.state.includes('In Talk'), memberGridOutTalk : agent.state.includes('Out Talk'), memberGridOutMute : agent.state.includes('Out Mute')}">
+                                        <div class="queueRow" ng-click="OpenAgentDetail(agent.agnetId)">{{agent.agentFirstName}} {{agent.agentLastName}} ({{agent.new + agent.holding}}) <span class="pull-right">{{agent.state}}</span></div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+             
+
+                    
+                        <div class="row">
+                            <div class=""><h4>Calls ({{selectedQueueCalls.length}})</h4></div>
+                            <div class="">
+                                <div class="col-sm-12 col-md-4 col-lg-3" ng-repeat="call in selectedQueueCalls">
+                                    <div style="color:white; border:#cdcdcd thin solid; padding:3px; margin-bottom:3px; overflow:hidden; white-space:nowrap; text-overflow:ellipsis; width:100%; display:block; text-align:left" ng-class='{"progress-bar-success" : call.progressBarType == "success", "progress-bar-warning" : call.progressBarType == "warning", "progress-bar-danger" : call.progressBarType == "danger"}'>
+                                        (<strong>{{call.callType}}</strong>) - {{call.clientName}}
+                                        <span class="pull-right">
+                                            {{call.timerInSeconds}}
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    
+
+
+                </td>
+            </tr>
+        </table>
+    </div>
+    @*<div class="col-sm-12 col-md-4 queue-list">
+
+
+
+        <ul class="list-group">
+            <li class="list-group-item" ng-class="{'list-group-item-info': queue.id == selectedQueueId}" ng-repeat="queue in queues | filter:searchFilter"><a href="javascript: void(null);" ng-click="SelectQueue(queue.id)">{{queue.affinityName}} ({{queue.calls}})</a></li>
+        </ul>
+
+    </div>
+
+    <div class="col-sm-12 col-md-8" ng-hide="selectedQueueId == -1">
+        <div class="row">
+            <div class="panel panel-a1-blue">
+                <div class="panel-heading">Agents ({{selectedQueueAgents.length}})</div>
+                <div class="panel-body">
+                    <div class="col-sm-12 col-md-6 col-lg-4" ng-repeat="agent in selectedQueueAgents">
+                        <div style="border:#cdcdcd thin solid; padding:3px; margin-bottom:3px; overflow:hidden; white-space:nowrap; text-overflow:ellipsis; width:100%; display:block">
+                            {{agent.agentFirstName}} {{agent.agentLastName}} ({{agent.new + agent.holding}}) <span class="pull-right">{{agent.state}}</span>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="panel panel-a1-blue">
+                <div class="panel-heading">Calls ({{selectedQueueCalls.length}})</div>
+                <div class="panel-body">
+                    <div class="col-sm-12 col-md-6 col-lg-4" ng-repeat="call in selectedQueueCalls">
+                        <div style="border:#cdcdcd thin solid; padding:3px; margin-bottom:3px; overflow:hidden; white-space:nowrap; text-overflow:ellipsis; width:100%; display:block">
+                            (<strong>{{call.callType}}</strong>) - {{call.clientId}} {{call.clientName}}
+                            <span class="pull-right">
+                                {{call.timerInSeconds}}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+*@

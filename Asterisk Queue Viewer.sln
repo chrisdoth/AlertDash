@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2036
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Asterisk Queue Viewer", "Asterisk Queue Viewer\Asterisk Queue Viewer.csproj", "{E4C4494D-381F-493D-BD19-638B97AEAB5B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Phoenix|Any CPU = Phoenix|Any CPU
+		Phoenix|x64 = Phoenix|x64
+		Phoenix|x86 = Phoenix|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+		Richmond|Any CPU = Richmond|Any CPU
+		Richmond|x64 = Richmond|x64
+		Richmond|x86 = Richmond|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E4C4494D-381F-493D-BD19-638B97AEAB5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4C4494D-381F-493D-BD19-638B97AEAB5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4C4494D-381F-493D-BD19-638B97AEAB5B}.Debug|x64.ActiveCfg = Debug|x64
+		{E4C4494D-381F-493D-BD19-638B97AEAB5B}.Debug|x64.Build.0 = Debug|x64
+		{E4C4494D-381F-493D-BD19-638B97AEAB5B}.Debug|x86.ActiveCfg = Debug|x86
+		{E4C4494D-381F-493D-BD19-638B97AEAB5B}.Debug|x86.Build.0 = Debug|x86
+		{E4C4494D-381F-493D-BD19-638B97AEAB5B}.Phoenix|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4C4494D-381F-493D-BD19-638B97AEAB5B}.Phoenix|Any CPU.Build.0 = Debug|Any CPU
+		{E4C4494D-381F-493D-BD19-638B97AEAB5B}.Phoenix|x64.ActiveCfg = Phoenix|x64
+		{E4C4494D-381F-493D-BD19-638B97AEAB5B}.Phoenix|x64.Build.0 = Phoenix|x64
+		{E4C4494D-381F-493D-BD19-638B97AEAB5B}.Phoenix|x86.ActiveCfg = Phoenix|x86
+		{E4C4494D-381F-493D-BD19-638B97AEAB5B}.Phoenix|x86.Build.0 = Phoenix|x86
+		{E4C4494D-381F-493D-BD19-638B97AEAB5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4C4494D-381F-493D-BD19-638B97AEAB5B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E4C4494D-381F-493D-BD19-638B97AEAB5B}.Release|x64.ActiveCfg = Release|x64
+		{E4C4494D-381F-493D-BD19-638B97AEAB5B}.Release|x64.Build.0 = Release|x64
+		{E4C4494D-381F-493D-BD19-638B97AEAB5B}.Release|x86.ActiveCfg = Release|x86
+		{E4C4494D-381F-493D-BD19-638B97AEAB5B}.Release|x86.Build.0 = Release|x86
+		{E4C4494D-381F-493D-BD19-638B97AEAB5B}.Richmond|Any CPU.ActiveCfg = Richmond|Any CPU
+		{E4C4494D-381F-493D-BD19-638B97AEAB5B}.Richmond|Any CPU.Build.0 = Richmond|Any CPU
+		{E4C4494D-381F-493D-BD19-638B97AEAB5B}.Richmond|x64.ActiveCfg = Richmond|x64
+		{E4C4494D-381F-493D-BD19-638B97AEAB5B}.Richmond|x64.Build.0 = Richmond|x64
+		{E4C4494D-381F-493D-BD19-638B97AEAB5B}.Richmond|x86.ActiveCfg = Richmond|x86
+		{E4C4494D-381F-493D-BD19-638B97AEAB5B}.Richmond|x86.Build.0 = Richmond|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {932FA84A-F4F2-463E-8459-84C720AEC54B}
+	EndGlobalSection
+EndGlobal

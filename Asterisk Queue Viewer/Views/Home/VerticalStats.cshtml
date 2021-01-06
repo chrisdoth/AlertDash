@@ -1,0 +1,94 @@
+﻿<div class="row">
+    <div class="col-md-3">
+        <div class="panel panel-info panel-a1-blue">
+            <div class="panel-heading">Verticals</div>
+            <div class="panel-body">
+                <ul class="list-group">
+                    <li ng-click="SelectVertical(vertical.id)" ng-repeat="vertical in allVerticals" ng-class="{'list-group-item a1-list-group-item-active-blue': vertical.id == selectedVertical,'list-group-item a1-list-group-item-blue': vertical.id != selectedVertical}"><a href="javascript: void(null)">{{vertical.id}}</a><span class="pull-right">({{vertical.calls}})</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-9">
+        <div class="col-md-4">
+
+            <div class="panel panel-info panel-a1-blue" ng-show="selectedVertical != ''">
+                <div class="panel-heading">Calls</div>
+                <div class="panel-body">
+                    <ul class="list-group">
+                        <li ng-repeat="call in selectedVerticalCalls" class="list-group-item" style="padding:0px">
+                            <div style="color:white; border:#cdcdcd thin solid; padding:3px; margin-bottom:3px; overflow:hidden; white-space:nowrap; text-overflow:ellipsis; width:100%; display:block; text-align:left" ng-class='{"progress-bar-success" : call.progressBarType == "success", "progress-bar-warning" : call.progressBarType == "warning", "progress-bar-danger" : call.progressBarType == "danger"}'>
+                                (<strong>{{call.callType}}</strong>) - {{call.clientName}}
+                                <span class="pull-right">
+                                    {{call.timerInSeconds}}
+                                </span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="panel panel-info panel-a1-blue" ng-show="selectedVertical != ''">
+                <div class="panel-heading">Agents</div>
+                <div class="panel-body">
+                    <ul class="list-group">
+                        <li ng-repeat="agent in selectedVerticalAgents" class="list-group-item" style="padding:0px">
+                            <div style="border:#cdcdcd thin solid; padding:3px; margin-bottom:3px; overflow:hidden; white-space:nowrap; text-overflow:ellipsis; width:100%; display:block; text-align:left" ng-class="{memberGridInMute : agent.state.includes('In Mute'), memberGridInTalk : agent.state.includes('In Talk'), memberGridOutTalk : agent.state.includes('Out Talk'), memberGridOutMute : agent.state.includes('Out Mute')}">
+                                <div class="queueRow" ng-click="OpenAgentDetail(agent.agnetId)">{{agent.agentFirstName}} {{agent.agentLastName}} ({{agent.new + agent.holding}}) <span class="pull-right">{{agent.state}}</span></div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-md-8">
+            <table class="table table-bordered table-striped table-a1-blue" ng-show="selectedVertical != ''">
+                <thead>
+                    <tr>
+                        <th>Period</th>
+                        <th>SLA</th>
+                        <th>Calls Offered</th>
+                        <th>Calls Handled</th>
+                        <th>Calls ABD</th>
+                        <th>Average Hold</th>
+                        <th>ASA</th>
+                        <th>Average Talk</th>
+                        <th>Longest Hold</th>
+                        <th>Longest TTA</th>
+                        <th>Work</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="text-nowrap"><strong>Totals:</strong></span></td>
+                        <td><span class="text-nowrap"><strong>{{selectedVerticalTotal.sla}}</strong></span></td>
+                        <td><span class=""><strong>{{selectedVerticalTotal.callsQueued}}</strong></span></td>
+                        <td><span class=""><strong>{{selectedVerticalTotal.callsHandled}}</strong></span></td>
+                        <td><span class=""><strong>{{selectedVerticalTotal.callsQueued - selectedVerticalTotal.callsHandled}}&nbsp;({{selectedVerticalTotal.callsQueued > 0 ? ((selectedVerticalTotal.callsQueued - selectedVerticalTotal.callsHandled) * 100 / selectedVerticalTotal.callsQueued) : 0 | number : 1}}%)</strong></span></td>
+                        <td><span class=""><strong>{{selectedVerticalTotal.averageHold}}</strong></span></td>
+                        <td><span class=""><strong>{{selectedVerticalTotal.averageTimeToAnswer}}</strong></span></td>
+                        <td><span class=""><strong>{{selectedVerticalTotal.averageTalkTime}}</strong></span></td>
+                        <td><span class=""><strong>{{selectedVerticalTotal.longestHold}}</strong></span></td>
+                        <td><span class=""><strong>{{selectedVerticalTotal.longestTimeToAnswer}}</strong></span></td>
+                        <td><span class="text-nowrap"><strong>{{selectedVerticalTotal.totalWork}}</strong></span></td>
+                    </tr>
+                    <tr ng-repeat="stat in selectedVerticalStats">
+                        <td><span class="text-nowrap">{{stat.periodStr}}</span></td>
+                        <td><span class="text-nowrap">{{stat.sla}}</span></td>
+                        <td>{{stat.callsQueued}}</td>
+                        <td>{{stat.callsHandled}}</td>
+                        <td>{{stat.callsQueued - stat.callsHandled}}&nbsp;({{stat.callsQueued > 0 ? ((stat.callsQueued - stat.callsHandled) * 100 / stat.callsQueued) : 0 | number : 1}}%)</td>
+                        <td>{{stat.averageHold}}</td>
+                        <td>{{stat.averageTimeToAnswer}}</td>
+                        <td>{{stat.averageTalkTime}}</td>
+                        <td>{{stat.longestHold}}</td>
+                        <td>{{stat.longestTimeToAnswer}}</td>
+                        <td><span class="text-nowrap">{{stat.totalWork}}</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

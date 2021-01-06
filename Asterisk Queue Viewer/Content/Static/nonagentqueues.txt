@@ -1,0 +1,7 @@
+Christopher Test Affinity
+(300) TRAINING
+(500) NON-AGENT ASSISTED SERVICES
+(501) Keener - Catch All
+(505) Keener - Level 5 Training
+(510) Keener - Level 10 Training
+(532) Keener - Dummy Queue (unstaffed)

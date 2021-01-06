@@ -1,0 +1,140 @@
+﻿<div style="padding-top:18px" class="modal-lg">
+    <div style="margin-left:1em;margin-right:1em;">
+        <h3 class="modal-title">
+            <span class="pull-left">{{selectedAgent.firstName}} {{selectedAgent.lastName}} ({{selectedAgent.initial}})</span>
+            <span class="pull-right">{{selectedAgent.site}}</span>
+        </h3>
+    </div>
+    <div class="modal-body">
+        <table class="table table-condensed">
+            <tr>
+                <td style="text-wrap:none; white-space:nowrap;">
+                    <div class="text-center thick-font" style="margin-top: 15px;">
+                        <span ng-class="selectedAgent.isLoggedOn ?  'agent-loggedIn' : 'agent-loggedOut'"></span> {{loggedInMessage}}
+                    </div>
+                    <hr />
+                    Utilization: <span class="thick-font">{{selectedAgent.utilization}}</span><br />
+                    <br />
+                    Total Login: <span class="thick-font">{{selectedAgent.totalLogin}}</span><br />
+                    Total Rotation: <span class="thick-font">{{selectedAgent.totalRotation}}</span><br />
+                    Out of Rotation: <span class="thick-font">{{selectedAgent.totalOutOfRotation}}</span><br />
+                    Total Work: <span class="thick-font">{{selectedAgent.totalWork}}</span><br />
+                    <br />
+                    Assigned: <span class="thick-font">{{selectedAgent.assignedCalls}}</span><br />
+                    Answered: <span class="thick-font">{{selectedAgent.answeredCalls}}</span><br />
+                    Refused: <span class="thick-font">{{selectedAgent.refuseCount}}</span><br />
+                    Ignored: <span class="thick-font">{{selectedAgent.ignoreCount}}</span><br />
+                    <hr />
+                    <div class="text-center thick-font">Positions</div>
+                    <div ng-repeat="position in selectedAgent.positions">
+                        <hr style="margin:0; padding:0;" />
+                        Position: <span class="thick-font">{{position.postionNumber}}</span><br />
+                        State: <span class="thick-font">{{position.state}}</span><br />
+                        Timer: <span class="thick-font">{{position.timer}}</span><br />
+                        New: <span class="thick-font">{{position.new}}</span><br />
+                        Holding: <span class="thick-font">{{position.holding}}</span><br />
+                        Client ID: <span class="thick-font">{{position.clientId}}</span><br />
+                        Client:<br /><span class="thick-font">{{position.clientName}}</span><br />
+                    </div>
+                </td>
+                <td>
+                    <ul class="nav nav-tabs" id="tabContent">
+                        <li ng-class="callsVisable ? 'active a1-tab' : 'a1-tab'"><a href="javascript: void(null)" ng-click="changeTab('Calls')">Calls</a></li>
+                        <li ng-class="queuesVisable ? 'active a1-tab' : 'a1-tab'"><a href="javascript: void(null)" ng-click="changeTab('Queues')">Queues</a></li>
+                        <li ng-class="rotationEventsVisable ? 'active a1-tab' : 'a1-tab'"><a href="javascript: void(null)" ng-click="changeTab('Rot')">Rotation History</a></li>
+                        <li ng-class="rotationSummaryVisible ? 'active a1-tab' : 'a1-tab'"><a href="javascript: void(null)" ng-click="changeTab('RotationSummary')">Rotation Summary</a></li>
+                        <li ng-class="loginEventsVisable ? 'active a1-tab' : 'a1-tab'"><a href="javascript: void(null)" ng-click="changeTab('Log')">Login History</a></li>
+                    </ul>
+
+                    <div class="tab-content">
+                        <div ng-class="callsVisable ? 'tab-pane active' : 'tab-pane'" ng-show="callsVisable" id="Calls" style="max-height:500px;overflow-y:scroll">
+                            <table class="table table-bordered table-striped table-condensed table-a1-blue">
+                                <tr>
+                                    <th>Client</th>
+                                    <th>Queue</th>
+                                    <th>TTA</th>
+                                    <th>Hold</th>
+                                    <th>Talk</th>
+                                    <th>Time</th>
+                                </tr>
+                                <tr ng-repeat="call in selectedAgent.recentCalls">
+                                    <td style="max-width:100px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">{{call.client}}</td>
+                                    <td style="max-width:100px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">{{call.queue}}</td>
+                                    <td>{{call.timeToAnswer}}</td>
+                                    <td>{{call.holdTime}}</td>
+                                    <td>{{call.talkTime}}</td>
+                                    <td class="text-nowrap">{{call.timeStamp}}</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="tab-content">
+                        <div ng-class="queuesVisable ? 'tab-pane active' : 'tab-pane'" ng-show="queuesVisable" id="Queues" style="max-height:500px;overflow-y:scroll">
+                            <table class="table table-bordered table-striped table-condensed table-a1-blue">
+                                <tr>
+                                    <th>Queue</th>
+                                    <th>Receptionists</th>
+                                    <th>Calls</th>
+                                </tr>
+                                <tr ng-repeat="queue in queues">
+                                    <td>{{queue.affinityName}}</td>
+                                    <td>{{queue.agents}}</td>
+                                    <td>{{queue.calls}}</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="tab-content">
+                        <div ng-class="rotationEventsVisable ? 'tab-pane active' : 'tab-pane'" ng-show="rotationEventsVisable" id="RotationEvents" style="max-height:500px;overflow-y:scroll">
+                            <table class="table table-bordered table-striped table-condensed table-a1-blue">
+                                <tr>
+                                    <th>Time</th>
+                                    <th>Event</th>
+                                    <th>Reason</th>
+                                </tr>
+                                <tr ng-repeat="rot in rotationEvents">
+                                    <td>{{rot.timeStamp | date : mediumTime}}</td>
+                                    <td>{{rot.event}}</td>
+                                    <td>{{rot.reason}}</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="tab-content">
+                        <div ng-class="rotationSummaryVisible ? 'tab-pane active' : 'tab-pane'" ng-show="rotationSummaryVisible" id="RotationSummary" style="max-height:500px;overflow-y:scroll">
+                            <table class="table table-bordered table-striped table-condensed table-a1-blue">
+                                <tr>
+                                    <th>Reason</th>
+                                    <th>Duration</th>
+                                </tr>
+                                <tr ng-repeat="(reason, duration) in selectedAgent.rotationSummary">
+                                    <td>{{reason}}</td>
+                                    <td>{{duration}}</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="tab-content">
+                        <div ng-class="loginEventsVisable ? 'tab-pane active' : 'tab-pane'" ng-show="loginEventsVisable" id="LoginEvents" style="max-height:500px;overflow-y:scroll">
+                            <table class="table table-bordered table-striped table-condensed table-a1-blue">
+                                <tr>
+                                    <th>Time</th>
+                                    <th>Event</th>
+                                </tr>
+                                <tr ng-repeat="rot in loginEvents">
+                                    <td>{{rot.timeStamp | date : mediumTime}}</td>
+                                    <td>{{rot.event}}</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,86 @@
+﻿<div class="row">
+    <div class="col-md-3">
+        <div class="panel panel-info panel-a1-blue">
+            <div class="panel-heading">Day Statistics</div>
+            <div class="panel-body">
+                Utilization: <span class="thick-font">{{dayStatistics.utilization}}</span> <br />
+                Total Work: <span class="thick-font">{{dayStatistics.totalWork}}</span> <br />
+                Total Login: <span class="thick-font">{{dayStatistics.totalLogin}}</span> <br />
+                SLA: <span class="thick-font">{{dayStatistics.sla}}</span> <br />
+                <hr />
+                Actions Due: <span class="thick-font">{{dayStatistics.actionsDue}}</span><br />
+                Actions Picked Up: <span class="thick-font">{{dayStatistics.actionsPickedUp}}</span><br />
+                Average Actions Past Due: <span class="thick-font">{{dayStatistics.actionsAvgPast}}</span><br />
+                Actions SLA: <span class="thick-font">{{dayStatistics.actionsSLA}}</span><br />
+                <hr />
+                Total Calls: <span class="thick-font">{{dayStatistics.totalCalls}}</span> <br />
+                Calls Offered: <span class="thick-font">{{dayStatistics.totalCallsOffered}}</span> <br />
+                Calls Handled: <span class="thick-font">{{dayStatistics.totalCallsHandled}}</span> <br />
+                Total Abandoned %: <span class="thick-font">{{dayStatistics.totalAbandonedPct}}%</span>
+                <hr />
+                Average Hold Time: <span class="thick-font">{{dayStatistics.averageHoldTime}}</span> <br />
+                Longest Hold Time: <span class="thick-font">{{dayStatistics.longestHoldTime}}</span> <br />
+                <hr />
+                Average Talk Time: <span class="thick-font">{{dayStatistics.averageTalkTime}}</span> <br />
+                Average Speed of Answer: <span class="thick-font">{{dayStatistics.averageTimeToAnswer}}</span> <br />
+                Longest Time to Answer: <span class="thick-font">{{dayStatistics.longestTimeToAnswer}}</span> <br />
+                <hr />
+                Logged in: <span class="thick-font">{{loggedInPositions}}</span> <br />
+                Licensed Logged in: <span class="thick-font">{{loggedInLicensedPositions}}</span> <br />
+            </div>
+        </div>
+    </div>
+    <div class="col-md-9">
+        <div class="panel panel-info panel-a1-blue">
+            <div class="panel-heading">History</div>
+            <div class="panel-body">
+                <table class="table table-bordered table-striped table-a1-blue">
+                    <thead>
+                        <tr>
+                            <th>Period</th>
+                            <th>SLA</th>
+                            <th>Offered</th>
+                            <th>Handled</th>
+                            <th>ABD</th>
+                            <th>AHT</th>
+                            <th>ASA</th>
+                            <th>ATT</th>
+                            <th>LHT</th>
+                            <th>LTTA</th>
+                            <th>Idle</th>
+                            <th>AVG TBC</th>
+                            <th>UTIL</th>
+                            <th>Work</th>
+                            <th>Login</th>
+                            <th>Act&nbsp;SLA</th>
+                            <th>Act&nbsp;APD</th>
+                            <th>Act&nbsp;LPD</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="stat in statHistory">
+                            <td><span class="text-nowrap">{{stat.periodStr}}</span></td>
+                            <td><span class="text-nowrap">{{stat.sla}}</span></td>
+                            <td>{{stat.callsOffered}}</td>
+                            <td>{{stat.callsHandled}}</td>
+                            <td>{{stat.callsOffered - stat.callsHandled}}&nbsp;({{stat.callsOffered > 0 ? ((stat.callsOffered - stat.callsHandled) * 100 / stat.callsOffered) : 0 | number : 1}}%)</td>
+                            <td>{{stat.averageHold}}</td>
+                            <td>{{stat.averageTimeToAnswer}}</td>
+                            <td>{{stat.averageTalkTime}}</td>
+                            <td>{{stat.longestHold}}</td>
+                            <td>{{stat.longestTimeToAnswer}}</td>
+                            <td>{{stat.idleTime}}</td>
+                            <td>{{stat.timeBetweenCalls}}</td>
+                            <td>{{stat.utilization}}</td>
+                            <td><span class="text-nowrap">{{stat.totalWork}}</span></td>
+                            <td><span class="text-nowrap">{{stat.totalLogin}}</span></td>
+                            <td>{{stat.actionSLA}}</td>
+                            <td>{{stat.actionAPD}}</td>
+                            <td>{{stat.actionLPD}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

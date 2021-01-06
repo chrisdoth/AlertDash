@@ -1,0 +1,59 @@
+﻿<div class="row">
+    <div class="col-sm-12 col-md-6">
+        <div class="row agents-agentList">
+            <div class="col-sm-12 col-md-12 filter-row">
+                <form class="form-inline form-a1-blue">
+                    <div class="form-group">
+                        <label>Filter:</label>
+                        <input type="text" ng-model="agentFilter" class="form-control input-a1-blue" />
+                    </div>
+                    <div class="checkbox form-group pull-right" style="margin-left:10px; margin-right:10px">
+                        <label><input class="checkbox" type="checkbox" ng-model="viewAgentsLoggedIn">Logged In</label>
+                    </div>
+                    <div class="checkbox form-group pull-right" style="margin-left:10px; margin-right:10px">
+                        <label><input class="checkbox" type="checkbox" ng-model="viewAgentsLoggedOut">Logged Out</label>
+                    </div>
+                </form>
+            </div>
+            <div class="list-group-item col-md-6" ng-repeat="agent in agents | agentListFilter: agentFilter:viewAgentsLoggedIn:viewAgentsLoggedOut">
+                <span class="glyphicon" ng-class="agent.isLoggedOn ?  'agent-loggedIn' : 'agent-loggedOut'" title="{{ agent.isLoggedOn ? 'Logged In' : 'Logged Out'}}"></span>
+                <a href="javascript: void(null)" ng-click="OpenAgentDetail(agent.id)">{{agent.firstName}} {{agent.lastName}} ({{agent.initial}})</a>
+                <i ng-show="agent.isLicensed" class="fa fa-check fa-fw" style="color:green;"></i>
+            </div>
+        </div>
+        
+
+
+        @*<ul class="list-group col-md-6">
+            <li class="list-group-item" ng-repeat="agent in agentsLeft | filter: agentFilter">
+                <span class="glyphicon" ng-class="agent.isLoggedOn ?  'agent-loggedIn' : 'agent-loggedOut'" title="{{ agent.isLoggedOn ? 'Logged In' : 'Logged Out'}}"></span>  
+                <a href="javascript: void(null)" ng-click="OpenAgentDetail(agent.id)">{{agent.firstName}} {{agent.lastName}} ({{agent.initial}})</a>
+            </li>
+        </ul>
+        <ul class="list-group col-md-6">
+            <li class="list-group-item" ng-repeat="agent in agentsRight | filter: agentFilter">
+                <span class="glyphicon" ng-class="agent.isLoggedOn ?  'agent-loggedIn' : 'agent-loggedOut'" title="{{ agent.isLoggedOn ? 'Logged In' : 'Logged Out'}}"></span> 
+                <a href="javascript: void(null)" ng-click="OpenAgentDetail(agent.id)">{{agent.firstName}} {{agent.lastName}} ({{agent.initial}})</a>
+            </li>
+        </ul>*@
+    </div>
+
+    <div class="col-sm-12 col-md-6">
+        <table class="table table-bordered table-striped table-a1-blue">
+            <thead>
+                <tr>
+                    <th>Time</th>
+                    <th>Receptionist</th>
+                    <th>Event</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="agtEvent in rotationEvents">
+                    <td>{{agtEvent.timeStamp}}</td>
+                    <td>{{agtEvent.agentName}}</td>
+                    <td>{{agtEvent.event}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

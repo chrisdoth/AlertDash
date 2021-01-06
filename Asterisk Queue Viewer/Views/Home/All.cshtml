@@ -1,0 +1,560 @@
+﻿<div class="row">
+
+    @* Small Sidebar *@ 
+
+    <div class="col-md-3" ng-show="!fullSidebar">
+        <div ng-class="inMutePositionsPanelClass">
+            @* IN MUTE *@
+            <div class="panel-heading thick-font" ng-click="isInMutePositionsCollapsed = !isInMutePositionsCollapsed">
+                <span class="pull-left">IN MUTE</span>
+                <span class="fa fa-fw fa-chevron-right pull-right" ng-click="showFullSidebar(true); $event.stopPropagation();" style="line-height:inherit"></span>
+                <span class="pull-right">({{inMutePositions.length}})</span>
+                <br />
+            </div>
+            <div class="panel-body table-responsive" collapse="isInMutePositionsCollapsed">
+                <table class="table table-condensed call-table table-nowrap" style="margin-bottom:0">
+                    <tr>
+                        <th>
+                            <a href="#" ng-click="inMutePositionsSortType = 'agentInitial'; inMuteSortReverse = !inMuteSortReverse">
+                                INI
+                                <span ng-show="inMutePositionsSortType == 'agentInitial' && !inMuteSortReverse" class="glyphicon glyphicon-arrow-down"></span>
+                                <span ng-show="inMutePositionsSortType == 'agentInitial' && inMuteSortReverse" class="glyphicon glyphicon-arrow-up"></span>
+                            </a>
+                        </th>
+                        <th>
+                            <a href="#" ng-click="inMutePositionsSortType = 'timer'; inMuteSortReverse = !inMuteSortReverse">
+                                Timer
+                                <span ng-show="inMutePositionsSortType == 'timer' && !inMuteSortReverse" class="glyphicon glyphicon-arrow-down"></span>
+                                <span ng-show="inMutePositionsSortType == 'timer' && inMuteSortReverse" class="glyphicon glyphicon-arrow-up"></span>
+                            </a>
+                        </th>
+                        <th class="Three-M-Width">
+                            <a href="#" ng-click="inMutePositionsSortType = 'new'; inMuteSortReverse = !inMuteSortReverse">
+                                New
+                                <span ng-show="inMutePositionsSortType == 'new' && !inMuteSortReverse" class="glyphicon glyphicon-arrow-down"></span>
+                                <span ng-show="inMutePositionsSortType == 'new' && inMuteSortReverse" class="glyphicon glyphicon-arrow-up"></span>
+                            </a>
+                        </th>
+                        <th class="Three-M-Width">
+                            <a href="#" ng-click="inMutePositionsSortType = 'holding'; inMuteSortReverse = !inMuteSortReverse">
+                                Hold
+                                <span ng-show="inMutePositionsSortType == 'holding' && !inMuteSortReverse" class="glyphicon glyphicon-arrow-down"></span>
+                                <span ng-show="inMutePositionsSortType == 'holding' && inMuteSortReverse" class="glyphicon glyphicon-arrow-up"></span>
+                            </a>
+                        </th>
+                        <th style="white-space:nowrap">
+                            <a href="#" ng-click="inMutePositionsSortType = 'clientId'; inMuteSortReverse = !inMuteSortReverse">
+                                Client ID
+                                <span ng-show="inMutePositionsSortType == 'clientId' && !inMuteSortReverse" class="glyphicon glyphicon-arrow-down"></span>
+                                <span ng-show="inMutePositionsSortType == 'clientId' && inMuteSortReverse" class="glyphicon glyphicon-arrow-up"></span>
+                            </a>
+                        </th>
+                    </tr>
+                    <tr ng-repeat="position in inMutePositions | orderBy:inMutePositionSortType:inMuteSortReverse">
+                        <td><a href="#" ng-click="OpenAgentDetail(position.agnetId)">{{position.agentInitial}}</a></td>
+                        <td>{{position.timer}}</td>
+                        <td>{{position.new}}</td>
+                        <td>{{position.holding}}</td>
+                        <td>{{position.clientId}}</td>                        
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        @* IN TALK *@
+        <div ng-class="inTalkPositionsPanelClass">
+            <div class="panel-heading thick-font" ng-click="isInTalkPositionsCollapsed = !isInTalkPositionsCollapsed">
+                <span class="pull-left">IN TALK</span>
+                <span class="fa fa-fw fa-chevron-right pull-right" ng-click="showFullSidebar(true); $event.stopPropagation();" style="line-height:inherit"></span>
+                <span class="pull-right">({{inTalkPositions.length}})</span>
+                <br />
+            </div>
+            <div class="panel-body table-responsive" collapse="isInTalkPositionsCollapsed">
+                <div class="">
+                    <table class="table table-condensed call-table table-nowrap" style="margin-bottom:0">
+                        <tr>
+                            <th>
+                                <a href="#" ng-click="inTalkPositionsSortType = 'agentInitial'; inTalkSortReverse = !inTalkSortReverse">
+                                    INI
+                                    <span ng-show="inTalkPositionsSortType == 'agentInitial' && !inTalkSortReverse" class="glyphicon glyphicon-arrow-down"></span>
+                                    <span ng-show="inTalkPositionsSortType == 'agentInitial' && inTalkSortReverse" class="glyphicon glyphicon-arrow-up"></span>
+                                </a>
+                            </th>
+                            <th>
+                                <a href="#" ng-click="inTalkPositionsSortType = 'timer'; inTalkSortReverse = !inMuteSortReverse">
+                                    Timer
+                                    <span ng-show="inTalkPositionsSortType == 'timer' && !inTalkSortReverse" class="glyphicon glyphicon-arrow-down"></span>
+                                    <span ng-show="inTalkPositionsSortType == 'timer' && inTalkSortReverse" class="glyphicon glyphicon-arrow-up"></span>
+                                </a>
+                            </th>
+                            <th class="Three-M-Width">
+                                <a href="#" ng-click="inTalkPositionsSortType = 'new'; inTalkSortReverse = !inTalkSortReverse">
+                                    New
+                                    <span ng-show="inTalkPositionsSortType == 'new' && !inTalkSortReverse" class="glyphicon glyphicon-arrow-down"></span>
+                                    <span ng-show="inTalkPositionsSortType == 'new' && inTalkSortReverse" class="glyphicon glyphicon-arrow-up"></span>
+                                </a>
+                            </th>
+                            <th class="Three-M-Width">
+                                <a href="#" ng-click="inTalkPositionsSortType = 'holding'; inTalkSortReverse = !inTalkSortReverse">
+                                    Hold
+                                    <span ng-show="inTalkPositionsSortType == 'holding' && !inTalkSortReverse" class="glyphicon glyphicon-arrow-down"></span>
+                                    <span ng-show="inTalkPositionsSortType == 'holding' && inTalkSortReverse" class="glyphicon glyphicon-arrow-up"></span>
+                                </a>
+                            </th>
+                            <th style="white-space:nowrap">
+                                <a href="#" ng-click="inTalkPositionsSortType = 'clientId'; inTalkSortReverse = !inTalkSortReverse">
+                                    Client ID
+                                    <span ng-show="inTalkPositionsSortType == 'clientId' && !inTalkSortReverse" class="glyphicon glyphicon-arrow-down"></span>
+                                    <span ng-show="inTalkPositionsSortType == 'clientId' && inTalkSortReverse" class="glyphicon glyphicon-arrow-up"></span>
+                                </a>
+                            </th>
+                        </tr>
+                        <tr ng-repeat="position in inTalkPositions | orderBy:inTalkPositionsSortType:inTalkSortReverse">
+                            <td><a href="#" ng-click="OpenAgentDetail(position.agnetId)">{{position.agentInitial}}</a></td>
+                            <td>{{position.timer}}</td>
+                            <td>{{position.new}}</td>
+                            <td>{{position.holding}}</td>
+                            <td>{{position.clientId}}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        @* OUT TALK *@
+        <div ng-class="outTalkPositionsPanelClass">
+            <div class="panel-heading thick-font" ng-click="isOutTalkPositionsCollapsed = !isOutTalkPositionsCollapsed">
+                <span class="pull-left">OUT TALK</span>
+                <span class="fa fa-fw fa-chevron-right pull-right" ng-click="showFullSidebar(true); $event.stopPropagation();" style="line-height:inherit"></span>
+                <span class="pull-right">({{outTalkPositions.length}})</span>
+                <br />
+            </div>
+            <div class="panel-body table-responsive" collapse="isOutTalkPositionsCollapsed">
+                <div class="">
+                    <table class="table table-condensed call-table table-nowrap" style="margin-bottom:0">
+                        <tr>
+                            <th>
+                                <a href="#" ng-click="outTalkPositionsSortType = 'agentInitial'; outTalkSortReverse = !outTalkSortReverse">
+                                    INI
+                                    <span ng-show="outTalkPositionsSortType == 'agentInitial' && !outTalkSortReverse" class="glyphicon glyphicon-arrow-down"></span>
+                                    <span ng-show="outTalkPositionsSortType == 'agentInitial' && outTalkSortReverse" class="glyphicon glyphicon-arrow-up"></span>
+                                </a>
+                            </th>
+                            <th>
+                                <a href="#" ng-click="outTalkPositionsSortType = 'timer'; outTalkSortReverse = !outTalkSortReverse">
+                                    Timer
+                                    <span ng-show="outTalkPositionsSortType == 'timer' && !outTalkSortReverse" class="glyphicon glyphicon-arrow-down"></span>
+                                    <span ng-show="outTalkPositionsSortType == 'timer' && outTalkSortReverse" class="glyphicon glyphicon-arrow-up"></span>
+                                </a>
+                            </th>
+                            <th class="Three-M-Width">
+                                <a href="#" ng-click="outTalkPositionsSortType = 'new'; outTalkSortReverse = !outTalkSortReverse">
+                                    New
+                                    <span ng-show="outTalkPositionsSortType == 'new' && !outTalkSortReverse" class="glyphicon glyphicon-arrow-down"></span>
+                                    <span ng-show="outTalkPositionsSortType == 'new' && outTalkSortReverse" class="glyphicon glyphicon-arrow-up"></span>
+                                </a>
+                            </th>
+                            <th class="Three-M-Width">
+                                <a href="#" ng-click="outTalkPositionsSortType = 'holding'; outTalkSortReverse = !outTalkSortReverse">
+                                    Hold
+                                    <span ng-show="outTalkPositionsSortType == 'holding' && !outTalkSortReverse" class="glyphicon glyphicon-arrow-down"></span>
+                                    <span ng-show="outTalkPositionsSortType == 'holding' && outTalkSortReverse" class="glyphicon glyphicon-arrow-up"></span>
+                                </a>
+                            </th>
+                            <th style="white-space:nowrap">
+                                <a href="#" ng-click="outTalkPositionsSortType = 'clientId'; outTalkSortReverse = !outTalkSortReverse">
+                                    Client ID
+                                    <span ng-show="outTalkPositionsSortType == 'clientId' && !outTalkSortReverse" class="glyphicon glyphicon-arrow-down"></span>
+                                    <span ng-show="outTalkPositionsSortType == 'clientId' && outTalkSortReverse" class="glyphicon glyphicon-arrow-up"></span>
+                                </a>
+                            </th>
+                        </tr>
+                        <tr ng-repeat="position in outTalkPositions | orderBy:outTalkPositionsSortType:outTalkSortReverse">
+                            <td><a href="#" ng-click="OpenAgentDetail(position.agnetId)">{{position.agentInitial}}</a></td>
+                            <td>{{position.timer}}</td>
+                            <td>{{position.new}}</td>
+                            <td>{{position.holding}}</td>
+                            <td>{{position.clientId}}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        @* OUT MUTE *@
+        <div ng-class="outMutePositionsPanelClass">
+            <div class="panel-heading thick-font" ng-click="isOutMutePositionsCollapsed = !isOutMutePositionsCollapsed">
+                <span class="pull-left">Out Mute</span>
+                <span class="fa fa-fw fa-chevron-right pull-right" ng-click="showFullSidebar(true); $event.stopPropagation();" style="line-height:inherit"></span>
+                <span class="pull-right">({{outMutePositions.length}})</span>
+                <br />
+            </div>
+            <div class="panel-body table-responsive" collapse="isOutMutePositionsCollapsed">
+                <div class="">
+                    <table class="table table-condensed call-table table-nowrap" style="margin-bottom:0">
+                        <tr>
+                            <th>
+                                <a href="#" ng-click="outMutePositionsSortType = 'agentInitial'; outMuteSortReverse = !outMuteSortReverse">
+                                    INI
+                                    <span ng-show="outMutePositionsSortType == 'agentInitial' && !outMuteSortReverse" class="glyphicon glyphicon-arrow-down"></span>
+                                    <span ng-show="outMutePositionsSortType == 'agentInitial' && outMuteSortReverse" class="glyphicon glyphicon-arrow-up"></span>
+                                </a>
+                            </th>
+                            <th>
+                                <a href="#" ng-click="outMutePositionsSortType = 'timer'; outMuteSortReverse = !outMuteSortReverse">
+                                    Timer
+                                    <span ng-show="outMutePositionsSortType == 'timer' && !outMuteSortReverse" class="glyphicon glyphicon-arrow-down"></span>
+                                    <span ng-show="outMutePositionsSortType == 'timer' && outMuteSortReverse" class="glyphicon glyphicon-arrow-up"></span>
+                                </a>
+                            </th>
+                            <th class="Three-M-Width">
+                                <a href="#" ng-click="outMutePositionsSortType = 'new'; outMuteSortReverse = !outMuteSortReverse">
+                                    New
+                                    <span ng-show="outMutePositionsSortType == 'new' && !outMuteSortReverse" class="glyphicon glyphicon-arrow-down"></span>
+                                    <span ng-show="outMutePositionsSortType == 'new' && outMuteSortReverse" class="glyphicon glyphicon-arrow-up"></span>
+                                </a>
+                            </th>
+                            <th class="Three-M-Width">
+                                <a href="#" ng-click="outMutePositionsSortType = 'holding'; outMuteSortReverse = !outMuteSortReverse">
+                                    Hold
+                                    <span ng-show="outMutePositionsSortType == 'holding' && !outMuteSortReverse" class="glyphicon glyphicon-arrow-down"></span>
+                                    <span ng-show="outMutePositionsSortType == 'holding' && outMuteSortReverse" class="glyphicon glyphicon-arrow-up"></span>
+                                </a>
+                            </th>
+                            <th style="white-space:nowrap">
+                                <a href="#" ng-click="outMutePositionsSortType = 'clientId'; outMuteSortReverse = !outMuteSortReverse">
+                                    Client ID
+                                    <span ng-show="outMutePositionsSortType == 'clientId' && !outMuteSortReverse" class="glyphicon glyphicon-arrow-down"></span>
+                                    <span ng-show="outMutePositionsSortType == 'clientId' && outMuteSortReverse" class="glyphicon glyphicon-arrow-up"></span>
+                                </a>
+                            </th>
+                        </tr>
+                        <tr ng-repeat="position in outMutePositions | orderBy:outMutePositionsSortType:outMuteSortReverse">
+                            <td><a href="#" ng-click="OpenAgentDetail(position.agnetId)">{{position.agentInitial}}</a></td>
+                            <td>{{position.timer}}</td>
+                            <td>{{position.new}}</td>
+                            <td>{{position.holding}}</td>
+                            <td>{{position.clientId}}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @* Large Sidebar *@
+
+    <div class="col-md-5" ng-show="fullSidebar">
+        <div ng-class="inMutePositionsPanelClass">
+            @* IN MUTE *@
+            <div class="panel-heading thick-font" ng-click="isInMutePositionsCollapsed = !isInMutePositionsCollapsed">
+                <span class="pull-left">IDLE</span>
+                <span class="fa fa-fw fa-chevron-left pull-right" ng-click="showFullSidebar(false); $event.stopPropagation();" style="line-height:inherit"></span>
+                <span class="pull-right">({{inMutePositions.length}})</span>
+                <br />
+            </div>
+            <div class="panel-body table-responsive" collapse="isInMutePositionsCollapsed">
+                <table class="table table-condensed call-table table-nowrap" style="margin-bottom:0">
+                    <tr>
+                        <th class="col-sm-2">
+                            <a href="#" ng-click="inMutePositionsSortType = 'agentInitial'; inMuteSortReverse = !inMuteSortReverse">
+                                INI
+                                <span ng-show="inMutePositionsSortType == 'agentInitial' && !inMuteSortReverse" class="glyphicon glyphicon-arrow-down"></span>
+                                <span ng-show="inMutePositionsSortType == 'agentInitial' && inMuteSortReverse" class="glyphicon glyphicon-arrow-up"></span>
+                            </a>
+                        </th>
+                        <th class="col-sm-2">
+                            <a href="#" ng-click="inMutePositionsSortType = 'timer'; inMuteSortReverse = !inMuteSortReverse">
+                                Timer
+                                <span ng-show="inMutePositionsSortType == 'timer' && !inMuteSortReverse" class="glyphicon glyphicon-arrow-down"></span>
+                                <span ng-show="inMutePositionsSortType == 'timer' && inMuteSortReverse" class="glyphicon glyphicon-arrow-up"></span>
+                            </a>
+                        </th>
+                        <th class="col-sm-1">
+                            <a href="#" ng-click="inMutePositionsSortType = 'new'; inMuteSortReverse = !inMuteSortReverse">
+                                New
+                                <span ng-show="inMutePositionsSortType == 'new' && !inMuteSortReverse" class="glyphicon glyphicon-arrow-down"></span>
+                                <span ng-show="inMutePositionsSortType == 'new' && inMuteSortReverse" class="glyphicon glyphicon-arrow-up"></span>
+                            </a>
+                        </th>
+                        <th class="col-sm-1">
+                            <a href="#" ng-click="inMutePositionsSortType = 'holding'; inMuteSortReverse = !inMuteSortReverse">
+                                Hold
+                                <span ng-show="inMutePositionsSortType == 'holding' && !inMuteSortReverse" class="glyphicon glyphicon-arrow-down"></span>
+                                <span ng-show="inMutePositionsSortType == 'holding' && inMuteSortReverse" class="glyphicon glyphicon-arrow-up"></span>
+                            </a>
+                        </th>
+                        <th style="white-space:nowrap" class="col-sm-2">
+                            <a href="#" ng-click="inMutePositionsSortType = 'clientId'; inMuteSortReverse = !inMuteSortReverse">
+                                Client ID
+                                <span ng-show="inMutePositionsSortType == 'clientId' && !inMuteSortReverse" class="glyphicon glyphicon-arrow-down"></span>
+                                <span ng-show="inMutePositionsSortType == 'clientId' && inMuteSortReverse" class="glyphicon glyphicon-arrow-up"></span>
+                            </a>
+                        </th>
+                        <th style="text-align:left">
+                            <a href="#" ng-click="inMutePositionsSortType = 'clientName'; inMuteSortReverse = !inMuteSortReverse">
+                                Client
+                                <span ng-show="inMutePositionsSortType == 'clientName' && !inMuteSortReverse" class="glyphicon glyphicon-arrow-down"></span>
+                                <span ng-show="inMutePositionsSortType == 'clientName' && inMuteSortReverse" class="glyphicon glyphicon-arrow-up"></span>
+                            </a>
+                        </th>
+                    </tr>
+                    <tr ng-repeat="position in inMutePositions | orderBy:inMutePositionSortType:inMuteSortReverse">
+                        <td><a href="#" ng-click="OpenAgentDetail(position.agnetId)">{{position.agentInitial}}</a></td>
+                        <td>{{position.timer}}</td>
+                        <td>{{position.new}}</td>
+                        <td>{{position.holding}}</td>
+                        <td>{{position.clientId}}</td>
+                        @*<td style="display:inline-block;position:relative"><span style="overflow:hidden;white-space:nowrap;text-overflow:ellipsis;position:absolute;">{{position.clientName}}</span></td>*@
+                        <td style="text-align:left">{{position.clientName}}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        @* IN TALK *@
+        <div ng-class="inTalkPositionsPanelClass">
+            <div class="panel-heading thick-font" ng-click="isInTalkPositionsCollapsed = !isInTalkPositionsCollapsed">
+                <span class="pull-left">TALK</span>
+                <span class="fa fa-fw fa-chevron-left pull-right" ng-click="showFullSidebar(false); $event.stopPropagation();" style="line-height:inherit"></span>
+                <span class="pull-right">({{inTalkPositions.length}})</span>
+                <br />
+            </div>
+            <div class="panel-body table-responsive" collapse="isInTalkPositionsCollapsed">
+                <div class="">
+                    <table class="table table-condensed call-table table-nowrap" style="margin-bottom:0">
+                        <tr>
+                            <th class="col-sm-2">
+                                <a href="#" ng-click="inTalkPositionsSortType = 'agentInitial'; inTalkSortReverse = !inTalkSortReverse">
+                                    INI
+                                    <span ng-show="inTalkPositionsSortType == 'agentInitial' && !inTalkSortReverse" class="glyphicon glyphicon-arrow-down"></span>
+                                    <span ng-show="inTalkPositionsSortType == 'agentInitial' && inTalkSortReverse" class="glyphicon glyphicon-arrow-up"></span>
+                                </a>
+                            </th>
+                            <th class="col-sm-2">
+                                <a href="#" ng-click="inTalkPositionsSortType = 'timer'; inTalkSortReverse = !inMuteSortReverse">
+                                    Timer
+                                    <span ng-show="inTalkPositionsSortType == 'timer' && !inTalkSortReverse" class="glyphicon glyphicon-arrow-down"></span>
+                                    <span ng-show="inTalkPositionsSortType == 'timer' && inTalkSortReverse" class="glyphicon glyphicon-arrow-up"></span>
+                                </a>
+                            </th>
+                            <th class="col-sm-1">
+                                <a href="#" ng-click="inTalkPositionsSortType = 'new'; inTalkSortReverse = !inTalkSortReverse">
+                                    New
+                                    <span ng-show="inTalkPositionsSortType == 'new' && !inTalkSortReverse" class="glyphicon glyphicon-arrow-down"></span>
+                                    <span ng-show="inTalkPositionsSortType == 'new' && inTalkSortReverse" class="glyphicon glyphicon-arrow-up"></span>
+                                </a>
+                            </th>
+                            <th class="col-sm-1">
+                                <a href="#" ng-click="inTalkPositionsSortType = 'holding'; inTalkSortReverse = !inTalkSortReverse">
+                                    Hold
+                                    <span ng-show="inTalkPositionsSortType == 'holding' && !inTalkSortReverse" class="glyphicon glyphicon-arrow-down"></span>
+                                    <span ng-show="inTalkPositionsSortType == 'holding' && inTalkSortReverse" class="glyphicon glyphicon-arrow-up"></span>
+                                </a>
+                            </th>
+                            <th style="white-space:nowrap" class="col-sm-2">
+                                <a href="#" ng-click="inTalkPositionsSortType = 'clientId'; inTalkSortReverse = !inTalkSortReverse">
+                                    Client ID
+                                    <span ng-show="inTalkPositionsSortType == 'clientId' && !inTalkSortReverse" class="glyphicon glyphicon-arrow-down"></span>
+                                    <span ng-show="inTalkPositionsSortType == 'clientId' && inTalkSortReverse" class="glyphicon glyphicon-arrow-up"></span>
+                                </a>
+                            </th>
+                            <th style="text-align:left">
+                                <a href="#" ng-click="inMutePositionsSortType = 'clientName'; inMuteSortReverse = !inMuteSortReverse">
+                                    Client
+                                    <span ng-show="inMutePositionsSortType == 'clientName' && !inMuteSortReverse" class="glyphicon glyphicon-arrow-down"></span>
+                                    <span ng-show="inMutePositionsSortType == 'clientName' && inMuteSortReverse" class="glyphicon glyphicon-arrow-up"></span>
+                                </a>
+                            </th>
+                        </tr>
+                        <tr ng-repeat="position in inTalkPositions | orderBy:inTalkPositionsSortType:inTalkSortReverse">
+                            <td><a href="#" ng-click="OpenAgentDetail(position.agnetId)">{{position.agentInitial}}</a></td>
+                            <td>{{position.timer}}</td>
+                            <td>{{position.new}}</td>
+                            <td>{{position.holding}}</td>
+                            <td>{{position.clientId}}</td>
+                            <td style="text-align:left">{{position.clientName}}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        @* OUT TALK *@
+        <div ng-class="outTalkPositionsPanelClass">
+            <div class="panel-heading thick-font" ng-click="isOutTalkPositionsCollapsed = !isOutTalkPositionsCollapsed">
+                <span class="pull-left">OUTBOUND/DISPATCHING</span>
+                <span class="fa fa-fw fa-chevron-left pull-right" ng-click="showFullSidebar(false); $event.stopPropagation();" style="line-height:inherit"></span>
+                <span class="pull-right">({{outTalkPositions.length}})</span>
+                <br />
+            </div>
+            <div class="panel-body table-responsive" collapse="isOutTalkPositionsCollapsed">
+                <div class="">
+                    <table class="table table-condensed call-table table-nowrap" style="margin-bottom:0">
+                        <tr>
+                            <th class="col-sm-2">
+                                <a href="#" ng-click="outTalkPositionsSortType = 'agentInitial'; outTalkSortReverse = !outTalkSortReverse">
+                                    INI
+                                    <span ng-show="outTalkPositionsSortType == 'agentInitial' && !outTalkSortReverse" class="glyphicon glyphicon-arrow-down"></span>
+                                    <span ng-show="outTalkPositionsSortType == 'agentInitial' && outTalkSortReverse" class="glyphicon glyphicon-arrow-up"></span>
+                                </a>
+                            </th>
+                            <th class="col-sm-2">
+                                <a href="#" ng-click="outTalkPositionsSortType = 'timer'; outTalkSortReverse = !outTalkSortReverse">
+                                    Timer
+                                    <span ng-show="outTalkPositionsSortType == 'timer' && !outTalkSortReverse" class="glyphicon glyphicon-arrow-down"></span>
+                                    <span ng-show="outTalkPositionsSortType == 'timer' && outTalkSortReverse" class="glyphicon glyphicon-arrow-up"></span>
+                                </a>
+                            </th>
+                            <th class="col-sm-1">
+                                <a href="#" ng-click="outTalkPositionsSortType = 'new'; outTalkSortReverse = !outTalkSortReverse">
+                                    New
+                                    <span ng-show="outTalkPositionsSortType == 'new' && !outTalkSortReverse" class="glyphicon glyphicon-arrow-down"></span>
+                                    <span ng-show="outTalkPositionsSortType == 'new' && outTalkSortReverse" class="glyphicon glyphicon-arrow-up"></span>
+                                </a>
+                            </th>
+                            <th class="col-sm-1">
+                                <a href="#" ng-click="outTalkPositionsSortType = 'holding'; outTalkSortReverse = !outTalkSortReverse">
+                                    Hold
+                                    <span ng-show="outTalkPositionsSortType == 'holding' && !outTalkSortReverse" class="glyphicon glyphicon-arrow-down"></span>
+                                    <span ng-show="outTalkPositionsSortType == 'holding' && outTalkSortReverse" class="glyphicon glyphicon-arrow-up"></span>
+                                </a>
+                            </th>
+                            <th class="col-sm-2" style="white-space:nowrap;">
+                                <a href="#" ng-click="outTalkPositionsSortType = 'clientId'; outTalkSortReverse = !outTalkSortReverse">
+                                    Client ID
+                                    <span ng-show="outTalkPositionsSortType == 'clientId' && !outTalkSortReverse" class="glyphicon glyphicon-arrow-down"></span>
+                                    <span ng-show="outTalkPositionsSortType == 'clientId' && outTalkSortReverse" class="glyphicon glyphicon-arrow-up"></span>
+                                </a>
+                            </th>
+                            <th style="text-align:left">
+                                <a href="#" ng-click="inMutePositionsSortType = 'clientName'; inMuteSortReverse = !inMuteSortReverse">
+                                    Client
+                                    <span ng-show="inMutePositionsSortType == 'clientName' && !inMuteSortReverse" class="glyphicon glyphicon-arrow-down"></span>
+                                    <span ng-show="inMutePositionsSortType == 'clientName' && inMuteSortReverse" class="glyphicon glyphicon-arrow-up"></span>
+                                </a>
+                            </th>
+                        </tr>
+                        <tr ng-repeat="position in outTalkPositions | orderBy:outTalkPositionsSortType:outTalkSortReverse">
+                            <td><a href="#" ng-click="OpenAgentDetail(position.agnetId)">{{position.agentInitial}}</a></td>
+                            <td>{{position.timer}}</td>
+                            <td>{{position.new}}</td>
+                            <td>{{position.holding}}</td>
+                            <td>{{position.clientId}}</td>
+                            <td style="text-align:left">{{position.clientName}}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        @* OUT MUTE *@
+        <div ng-class="outMutePositionsPanelClass">
+            <div class="panel-heading thick-font" ng-click="isOutMutePositionsCollapsed = !isOutMutePositionsCollapsed">
+                <span class="pull-left">UNAVAILABLE</span>
+                <span class="fa fa-fw fa-chevron-left pull-right" ng-click="showFullSidebar(false); $event.stopPropagation();" style="line-height:inherit"></span>
+                <span class="pull-right">({{outMutePositions.length}})</span>
+                <br />
+            </div>
+            <div class="panel-body table-responsive" collapse="isOutMutePositionsCollapsed">
+                <div class="">
+                    <table class="table table-condensed call-table table-nowrap" style="margin-bottom:0">
+                        <tr>
+                            <th class="col-sm-2">
+                                <a href="#" ng-click="outMutePositionsSortType = 'agentInitial'; outMuteSortReverse = !outMuteSortReverse">
+                                    INI
+                                    <span ng-show="outMutePositionsSortType == 'agentInitial' && !outMuteSortReverse" class="glyphicon glyphicon-arrow-down"></span>
+                                    <span ng-show="outMutePositionsSortType == 'agentInitial' && outMuteSortReverse" class="glyphicon glyphicon-arrow-up"></span>
+                                </a>
+                            </th>
+                            <th class="col-sm-2">
+                                <a href="#" ng-click="outMutePositionsSortType = 'timer'; outMuteSortReverse = !outMuteSortReverse">
+                                    Timer
+                                    <span ng-show="outMutePositionsSortType == 'timer' && !outMuteSortReverse" class="glyphicon glyphicon-arrow-down"></span>
+                                    <span ng-show="outMutePositionsSortType == 'timer' && outMuteSortReverse" class="glyphicon glyphicon-arrow-up"></span>
+                                </a>
+                            </th>
+                            <th class="col-sm-1">
+                                <a href="#" ng-click="outMutePositionsSortType = 'new'; outMuteSortReverse = !outMuteSortReverse">
+                                    New
+                                    <span ng-show="outMutePositionsSortType == 'new' && !outMuteSortReverse" class="glyphicon glyphicon-arrow-down"></span>
+                                    <span ng-show="outMutePositionsSortType == 'new' && outMuteSortReverse" class="glyphicon glyphicon-arrow-up"></span>
+                                </a>
+                            </th>
+                            <th class="col-sm-1">
+                                <a href="#" ng-click="outMutePositionsSortType = 'holding'; outMuteSortReverse = !outMuteSortReverse">
+                                    Hold
+                                    <span ng-show="outMutePositionsSortType == 'holding' && !outMuteSortReverse" class="glyphicon glyphicon-arrow-down"></span>
+                                    <span ng-show="outMutePositionsSortType == 'holding' && outMuteSortReverse" class="glyphicon glyphicon-arrow-up"></span>
+                                </a>
+                            </th>
+                            <th class="col-sm-2" style="white-space:nowrap">
+                                <a href="#" ng-click="outMutePositionsSortType = 'clientId'; outMuteSortReverse = !outMuteSortReverse">
+                                    Client ID
+                                    <span ng-show="outMutePositionsSortType == 'clientId' && !outMuteSortReverse" class="glyphicon glyphicon-arrow-down"></span>
+                                    <span ng-show="outMutePositionsSortType == 'clientId' && outMuteSortReverse" class="glyphicon glyphicon-arrow-up"></span>
+                                </a>
+                            </th>
+                            <th style="text-align:left">
+                                <a href="#" ng-click="inMutePositionsSortType = 'clientName'; inMuteSortReverse = !inMuteSortReverse">
+                                    Reason
+                                    <span ng-show="inMutePositionsSortType == 'clientName' && !inMuteSortReverse" class="glyphicon glyphicon-arrow-down"></span>
+                                    <span ng-show="inMutePositionsSortType == 'clientName' && inMuteSortReverse" class="glyphicon glyphicon-arrow-up"></span>
+                                </a>
+                            </th>
+                        </tr>
+                        <tr ng-repeat="position in outMutePositions | orderBy:outMutePositionsSortType:outMuteSortReverse">
+                            <td><a href="#" ng-click="OpenAgentDetail(position.agnetId)">{{position.agentInitial}}</a></td>
+                            <td>{{position.timer}}</td>
+                            <td>{{position.new}}</td>
+                            <td>{{position.holding}}</td>
+                            <td>{{position.clientId}}</td>
+                            <td style="text-align:left">{{position.outOfRotationReason}}</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div ng-class="callGridClass">
+        <div class="row">
+            <div ng-class="callGridItemClass" ng-repeat="call in callGridCalls">
+                <div class="{{call.style}}">
+                    <div class="panel-heading" style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">
+                        <span class="thick-font">{{call.data.queue}}</span>
+                        <br />
+                        <span class="pull-left">TYPE: <span class="thick-font">{{call.data.callType}}</span></span>
+                        <span class="pull-right">TIME: <span class="thick-font">{{call.data.timerInSeconds}}</span></span>
+                    </div>
+                    <div class="panel-body a1-light-text" style="overflow:hidden; white-space:nowrap; text-overflow:ellipsis;">
+                        Client: <span class="thick-font">{{call.data.clientName}}</span><br />
+                        ID: <span class="thick-font">{{call.data.clientId}}</span><br />
+                        ANI: <span class="thick-font">{{call.data.ani}}</span><br />
+                        Caller Name: <span class="thick-font">{{call.data.callerName}}</span>
+                        <br />
+                        <progressbar class="progress" type="{{call.data.progressBarType}}" value="call.data.timerInSeconds" max="call.data.progressBarMaxValue" min="call.data.progressBarMinValue">{{call.data.timerInSeconds}} Sec</progressbar>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="row">
+            <div class="col-md-12" ng-repeat="action in actionGrid">
+                <div class="{{action.style}}">
+                    <div class="panel-heading panel-heading-action" style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">
+                        <span class="pull-left">TYPE: <span class="thick-font">{{action.data.actionType}}</span></span>
+                    </div>
+                    <div class="panel-body panel-body-action" style="overflow:hidden; white-space: nowrap; text-overflow: ellipsis;">
+                        Client: <span class="thick-font">{{action.data.clientName}}</span><br />
+                        ID: <span class="thick-font">{{action.data.clientID}}</span>
+                        <br />
+                        <progressbar class="progress" type="{{action.data.progressBarType}}" value="action.data.timeOverdue" max="action.data.progressBarMaxValue" min="action.data.progressBarMinValue">{{action.data.timeOverdue}} Sec</progressbar>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

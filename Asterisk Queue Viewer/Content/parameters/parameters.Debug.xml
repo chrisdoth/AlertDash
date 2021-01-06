@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<parameters>
+	<parameter name="STLNTDBConnectionString-Web.config Connection String" description="STLNTDBConnectionString Connection String used in web.config by the application to access the database." defaultValue="Data Source=cmc-a.a1sopps.local;Initial Catalog=STLNTDB;User ID=startelopr;Password=1letrats" tags="SqlConnectionString">
+		<parameterEntry kind="XmlFile" scope="C:\\projects\\AsteriskQueueViewer\\Asterisk\ Queue\ Viewer\\obj\\Richmond\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='STLNTDBConnectionString']/@connectionString" />
+	</parameter>
+</parameters>

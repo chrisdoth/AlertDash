@@ -1,0 +1,36 @@
+﻿<div ng-controller="viewCtrl">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="main-nav">
+                <tabset>
+                    <tab class="a1-tab" ng-repeat="t in tabs" heading="{{t.heading}}" select="changeTab(t.route)" active="t.active"></tab>
+                </tabset>
+            </div>
+            <div class="site-selector">
+                <form>
+                    Select Site:&nbsp;
+                    <select name="select-site" ng-model="selectedSite" ng-change="pick_site()" ng-options="x for x in sites">
+                    </select>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="alert a1-blue">CALLS: Total <span class="thick-font">{{ringingCallCount + holdingCallCount}}</span> | Ringing <span class="thick-font">{{ringingCallCount}}</span> | Holding <span class="thick-font">{{holdingCallCount}}</span></div>
+        </div>
+        <div class="col-md-2 text-center">
+            <div class="alert a1-blue">RECEPTIONISTS: <span class="thick-font">{{positions.length}}</span></div>
+        </div>
+        <div class="col-md-2 text-center">
+            <div class="alert a1-blue">AVG HOLD: <span class="thick-font">{{dayStatistics.averageHoldTime}}</span></div>
+        </div>
+        <div class="col-md-2 text-center">
+            <div class="alert a1-blue">AVG ANSWER: <span class="thick-font">{{dayStatistics.averageTimeToAnswer}}</span></div>
+        </div>
+        <div class="col-md-3 text-center">
+            <div class="alert a1-blue">SLA: <span class="thick-font">{{dayStatistics.sla}}</span> | Act&nbsp;SLA: <span class="thick-font">{{dayStatistics.actionsSLA}}</span> | UTIL: <span class="thick-font">{{dayStatistics.utilization}}</span> | TCH: <span class="thick-font">{{dayStatistics.totalCallsHandled}}</span> </div>
+        </div>
+    </div>
+    <div ui-view style="margin-top:5px;"></div>
+</div>

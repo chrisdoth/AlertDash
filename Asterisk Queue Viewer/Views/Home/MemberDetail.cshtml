@@ -1,0 +1,37 @@
+﻿
+
+@*@section scripts {
+    @Scripts.Render("~/Scripts/angular.js")
+    @Scripts.Render("~/Scripts/app/queueViewer-controller.js")
+    @Scripts.Render("~/Scripts/Chart.js")
+    @Scripts.Render("~/Scripts/angular-chart.js")
+    @Scripts.Render("~/Scripts/angular-ui/ui-bootstrap.js")
+    @Scripts.Render("~/Scripts/angular-ui/ui-bootstrap-tpls.js")
+}*@
+
+<div style="padding-top:18px">
+    <table class="table table-bordered">
+        <tr>
+            <td>Initials: {{selectedMember.initials}}</td>
+            <td>State: {{selectedMember.state}}</td>
+        </tr>
+        <tr>
+            <td>New: {{selectedMember.newCalls}}</td>
+            <td>Hold: {{selectedMember.heldCalls}}</td>
+        </tr>
+        <tr>
+            <td colspan="2">Client ID: {{selectedMember.textId}}</td>
+        </tr>
+        <tr>
+            <td colspan="2">Client: {{selectedMember.client}}</td>
+        </tr>
+        <tr>
+            <td>Timer: {{selectedMember.timer}}</td>
+            <td>Wrap Time: {{selectedMember.wrapTime}}</td>
+        </tr>
+    </table>
+    
+
+</div>
+
+

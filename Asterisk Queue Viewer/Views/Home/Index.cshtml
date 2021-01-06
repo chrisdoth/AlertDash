@@ -1,0 +1,55 @@
+﻿@*@{
+    ViewBag.Title = "Home Page";
+}
+
+@section scripts {
+    @Scripts.Render("~/Scripts/angular.js")
+    @Scripts.Render("~/Scripts/app/queueViewer-controller.js")
+    @Scripts.Render("~/Scripts/Chart.js")
+    @Scripts.Render("~/Scripts/angular-chart.js")
+    @Scripts.Render("~/Scripts/angular-ui/ui-bootstrap.js")
+    @Scripts.Render("~/Scripts/angular-ui/ui-bootstrap-tpls.js")
+    @Scripts.Render("~/Scripts/angular-ui-router.js")
+    @Scripts.Render("~/Scripts/ui-grid-unstable.js")
+}*@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexa Dashboard</title>
+    
+    @Styles.Render("~/Content/font-awesome.min.css")
+
+    @Scripts.Render("~/Scripts/angular.js")
+    @Scripts.Render("~/Scripts/app/queueViewer-controller.js")
+    @Scripts.Render("~/Scripts/Chart.js")
+    @Scripts.Render("~/Scripts/angular-chart.js")
+    @Scripts.Render("~/Scripts/angular-ui/ui-bootstrap.js")
+    @Scripts.Render("~/Scripts/angular-ui/ui-bootstrap-tpls.js")
+    @Scripts.Render("~/Scripts/angular-ui-router.js")
+    @Scripts.Render("~/Scripts/ui-grid-unstable.js")
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/ui-grid-unstable.css")
+    @Scripts.Render("~/bundles/modernizr")
+
+    
+    @*@Scripts.Render("~/bundles/angularChart")*@
+
+</head>
+<body>
+    @*@Scripts.Render("~/bundles/jquery")*@
+    @*@Scripts.Render("~/bundles/bootstrap")*@
+    @*@RenderSection("scripts", required: false)*@
+
+    <div class="container-fluid body-content">
+        <div ng-app="QueueViewer">
+            <div ui-view></div>
+        </div>
+    </div>
+
+
+</body>
+</html>

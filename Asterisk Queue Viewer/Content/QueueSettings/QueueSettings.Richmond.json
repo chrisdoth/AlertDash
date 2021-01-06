@@ -1,0 +1,68 @@
+﻿[
+    {
+        "WarningTimeoutInSeconds": 12,
+        "DangerTimeoutInSeconds": 24,
+        "QueueId": 21,
+        "GroupingName": "Basic Accounts"
+    },
+    {
+        "WarningTimeoutInSeconds": 12,
+        "DangerTimeoutInSeconds": 24,
+        "QueueId": 22,
+        "GroupingName": "Basic Accounts"
+    },
+    {
+        "WarningTimeoutInSeconds": 12,
+        "DangerTimeoutInSeconds": 24,
+        "QueueId": 23,
+        "GroupingName": "Basic Accounts"
+    },
+    {
+        "WarningTimeoutInSeconds": 12,
+        "DangerTimeoutInSeconds": 24,
+        "QueueId": 24,
+        "GroupingName": "Home Health, Hospice, Consulting"
+    },
+    {
+        "WarningTimeoutInSeconds": 12,
+        "DangerTimeoutInSeconds": 24,
+        "QueueId": 30,
+        "GroupingName": "Home Health, Hospice, Consulting"
+    },
+    {
+        "WarningTimeoutInSeconds": 12,
+        "DangerTimeoutInSeconds": 24,
+        "QueueId": 25,
+        "GroupingName": "Medical"
+    },
+    {
+        "WarningTimeoutInSeconds": 12,
+        "DangerTimeoutInSeconds": 24,
+        "QueueId": 26,
+        "GroupingName": "Medical"
+    },
+    {
+        "WarningTimeoutInSeconds": 12,
+        "DangerTimeoutInSeconds": 24,
+        "QueueId": 29,
+        "GroupingName": "Fire / Sprinkler Contractors"
+    },
+    {
+        "WarningTimeoutInSeconds": 12,
+        "DangerTimeoutInSeconds": 24,
+        "QueueId": 31,
+        "GroupingName": "Specific Training"
+    },
+    {
+        "WarningTimeoutInSeconds": 12,
+        "DangerTimeoutInSeconds": 24,
+        "QueueId": 27,
+        "GroupingName": "Specific Training"
+    },
+    {
+        "WarningTimeoutInSeconds": 12,
+        "DangerTimeoutInSeconds": 24,
+        "QueueId": 28,
+        "GroupingName": "Real Estate Investement"
+    }
+]

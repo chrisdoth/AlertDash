@@ -1,0 +1,24 @@
+﻿<div><b>WTF</b></div>
+<div ng-class="callGridClass">
+    <div class="row">
+        <div ng-class="callGridItemClass" ng-repeat="call in callGridCalls">
+            <div class="{{call.style}}">
+                <div class="panel-heading" style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">
+                    <span class="thick-font">{{call.data.queue}}</span>
+                    <br />
+                    <span class="pull-left">TYPE: <span class="thick-font">{{call.data.callType}}</span></span>
+                    <span class="pull-right">TIME: <span class="thick-font">{{call.data.timerInSeconds}}</span></span>
+                </div>
+                <div class="panel-body a1-light-text" style="overflow:hidden; white-space:nowrap; text-overflow:ellipsis;">
+                    Client: <span class="thick-font">{{call.data.clientName}}</span><br />
+                    ID: <span class="thick-font">{{call.data.clientId}}</span><br />
+                    ANI: <span class="thick-font">{{call.data.ani}}</span><br />
+                    Caller Name: <span class="thick-font">{{call.data.callerName}}</span>
+                    <br />
+                    <progressbar class="progress" type="{{call.data.progressBarType}}" value="call.data.timeOverdue" max="call.data.progressBarMaxValue" min="call.data.progressBarMinValue">{{call.data.timeOverdue}} Sec</progressbar>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
